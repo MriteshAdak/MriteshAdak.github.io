@@ -8,4 +8,5 @@ export interface PortfolioData {
     contact: Contact | null;
     projects: Project[];
     experiences: Experience[];
+    highlights?: string[];
 }

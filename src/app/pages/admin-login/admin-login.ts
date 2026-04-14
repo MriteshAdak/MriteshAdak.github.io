@@ -2,6 +2,8 @@ import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/cor
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 
+// NOTE: Admin login UI is intentionally parked until dashboard integration resumes.
+
 @Component({
   selector: 'app-admin-login',
   imports: [ReactiveFormsModule, RouterLink],

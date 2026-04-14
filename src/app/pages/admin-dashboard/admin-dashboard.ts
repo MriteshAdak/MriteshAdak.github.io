@@ -1,6 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnInit, inject, signal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { PortfolioData } from '../../interfaces/portfolio-data';
+import { PortfolioDataService } from '../../services/portfolio-data.service';
+
+// NOTE: Admin dashboard is parked for now; it remains as a preview shell for later CRUD integration.
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -13,7 +16,7 @@ import { PortfolioData } from '../../interfaces/portfolio-data';
             <p class="text-xs font-semibold uppercase tracking-[0.35em] text-cyan-300">Admin dashboard</p>
             <h1 class="mt-3 text-3xl font-semibold text-white">Portfolio management</h1>
             <p class="detail-text mt-3 max-w-3xl text-sm leading-6 text-slate-300">
-              This shell is connected to the server session endpoint and the public portfolio API. CRUD screens will be layered on top of it next.
+              This shell is currently backed by a local data file source. CRUD screens will be layered on top of it next.
             </p>
           </div>
 
@@ -81,6 +84,7 @@ import { PortfolioData } from '../../interfaces/portfolio-data';
 })
 export class AdminDashboardComponent implements OnInit {
   private readonly router = inject(Router);
+  private readonly portfolioDataService = inject(PortfolioDataService);
 
   protected readonly loading = signal(true);
   protected readonly errorMessage = signal<string | null>(null);
@@ -104,17 +108,10 @@ export class AdminDashboardComponent implements OnInit {
     this.errorMessage.set(null);
 
     try {
-      const response = await fetch('/api/public/portfolio', {
-        credentials: 'include',
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to load portfolio data');
-      }
-
-      this.portfolio.set((await response.json()) as PortfolioData);
+      const data = await this.portfolioDataService.getPortfolioData();
+      this.portfolio.set(data);
     } catch {
-      this.errorMessage.set('Unable to load portfolio data from the server.');
+      this.errorMessage.set('Unable to load portfolio data from data file.');
     } finally {
       this.loading.set(false);
     }

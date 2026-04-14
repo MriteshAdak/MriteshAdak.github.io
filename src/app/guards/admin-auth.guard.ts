@@ -1,6 +1,9 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 
+// NOTE: This guard is reserved for the future admin auth flow.
+// The current portfolio content is sourced from a local JSON file.
+
 type SessionResponse = {
   authenticated?: boolean;
 };

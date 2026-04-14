@@ -1,0 +1,69 @@
+{
+  "profile": {
+    "id": 1,
+    "fullName": "Mritesh Adak",
+    "headline": "Computer Science Student with experience in Salesforce (Consulting and Development) specifically in Revenue Operations a.k.a Quote-to-Cash lifecycle using Conga Product Suite. Learning platform agnostic development with a focus on Backend (java) and Databases (PostgreSQL)."
+  },
+  "contact": {
+    "email": "adak.mritesh@gmail.com",
+    "linkedinUrl": "https://www.linkedin.com/in/mriteshadak",
+    "githubUrl": "https://github.com/MriteshAdak"
+  },
+  "highlights": [
+    "Angular",
+    "Express",
+    "Prisma",
+    "Supabase"
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "name": "LWC application for querying Salesforce Attachments and Files",
+      "description": "A Lightning Web Component (LWC) built on the Salesforce platform that allows users to query and manage Attachments and Files directly from their Salesforce org, streamlining document handling and optimizing org storage.",
+      "projectUrl": "https://example.com/portfolio-orchestrator",
+      "tag": "Angular",
+      "imageUrl": null,
+      "displayOrder": 0
+    },
+    {
+      "id": 2,
+      "name": "Content dashboard scaffold",
+      "description": "An admin-ready backend and UI foundation for updating projects, experiences, and profile content from one place.",
+      "projectUrl": "https://example.com/content-dashboard",
+      "tag": "Express",
+      "imageUrl": null,
+      "displayOrder": 1
+    },
+    {
+      "id": 3,
+      "name": "Server + Prisma data layer",
+      "description": "A Supabase PostgreSQL backend design with Prisma schemas for portfolio records, sessions, and future expansion.",
+      "projectUrl": "https://example.com/server-prisma-layer",
+      "tag": "Prisma",
+      "imageUrl": null,
+      "displayOrder": 2
+    }
+  ],
+  "experiences": [
+    {
+      "id": 1,
+      "company": "Independent work",
+      "role": "Frontend and platform engineering",
+      "summary": "Built Angular interfaces, planned backend integration points, and shaped dashboard-style workflows that can scale with content management.",
+      "startDate": "2024-01-01",
+      "endDate": null,
+      "isCurrent": true,
+      "displayOrder": 0
+    },
+    {
+      "id": 2,
+      "company": "Previous product teams",
+      "role": "UI focused engineer",
+      "summary": "Delivered responsive user interfaces, cleaned up shared component patterns, and worked on data-heavy screens with practical performance tradeoffs.",
+      "startDate": "2022-01-01",
+      "endDate": "2023-12-31",
+      "isCurrent": false,
+      "displayOrder": 1
+    }
+  ]
+}

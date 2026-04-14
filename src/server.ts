@@ -4,6 +4,9 @@ import {
   isMainModule,
   writeResponseToNodeResponse,
 } from '@angular/ssr/node';
+
+// NOTE: Express + Prisma endpoints are kept for upcoming admin/dashboard integration.
+// For now, the active UI data source is `public/data/portfolio.json`.
 import cookieParser from 'cookie-parser';
 import express from 'express';
 import rateLimit from 'express-rate-limit';
