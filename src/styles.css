@@ -31,6 +31,10 @@ a {
 	text-decoration: none;
 }
 
+.detail-text {
+	font-family: cascadia-code, ui-serif, Georgia, Cambria, 'Times New Roman', serif;
+}
+
 * {
 	box-sizing: border-box;
 }
