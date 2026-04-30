@@ -85,7 +85,7 @@ import { PortfolioDataService } from '../../services/portfolio-data.service';
           id="contact"
           eyebrow="Contact details"
           title="Reach me directly"
-          description="Email, LinkedIn, and GitHub are the primary public contact channels for this V1 landing page."
+          description="Email, LinkedIn, and GitHub"
         >
           <div class="grid gap-4 md:grid-cols-3">
             <a [href]="'mailto:' + (data.contact?.email ?? '')" class="rounded-[1.5rem] border border-white/10 bg-white/5 p-5 transition hover:border-cyan-300/40 hover:bg-white/10">
