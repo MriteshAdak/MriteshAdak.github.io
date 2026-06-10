@@ -2,7 +2,7 @@
   "profile": {
     "id": 1,
     "fullName": "Mritesh Adak",
-    "headline": "Computer Science Student with experience in Salesforce (Consulting and Development) specifically in Revenue Operations a.k.a Quote-to-Cash lifecycle using Conga Product Suite. Learning platform agnostic development with Java and TypeScript and experimenting with agentic workflows."
+    "headline": "Computer Science Student with background in Salesforce platform consulting and development specifically in Revenue Operations a.k.a Quote-to-Cash lifecycle using Conga Product Suite. \n Learning platform agnostic development with Python, Java and TypeScript and experimenting with agentic workflows."
   },
   "contact": {
     "email": "mriteshadak@outlook.com",
@@ -10,15 +10,15 @@
     "githubUrl": "https://github.com/MriteshAdak"
   },
   "highlights": [
-    "Salesforce",
-    "Conga",
-    "Revenue Operations",
+    "Python",
     "Java",
     "TypeScript",
-    "PostgreSQL",
-    "Python",
-    "Bash",
-    "SQL"
+    "SQL",
+    "Apex",
+    "AWS",
+    "Azure",
+    "Salesforce",
+    "Conga"
   ],
   "projects": [
     {
@@ -35,7 +35,7 @@
       "name": "Insurance Claim Prediction Model",
       "description": "A binary classification model using Python and scikit-learn to predict likely insurance claims based on historical data, comparing multiple algorithms to determine the most effective approach using (FNR) False Negative Rate as the determination metric, demonstrating practical machine learning application and data analysis skills.",
       "projectUrl": "https://github.com/MriteshAdak/prediction-model-binary-classifier",
-      "tag": "Python",
+      "tag": "Python(Conda)",
       "imageUrl": null,
       "displayOrder": 1
     },
@@ -44,7 +44,7 @@
       "name": "Task Manager",
       "description": "A Basic Task Manager application built with FastAPI, Next.js, and PostgreSQL, featuring RESTful APIs for task management, and a simple frontend interface for task organization and tracking and a database to store the tasks.",
       "projectUrl": "https://example.com/server-prisma-layer",
-      "tag": "FastAPI",
+      "tag": "Python(FastAPI)",
       "imageUrl": null,
       "displayOrder": 2
     }
@@ -54,7 +54,7 @@
       "id": 1,
       "company": "Accenture",
       "role": "Packaged App Development Analyst",
-      "summary": "Tasked to migrate Salesforce Conga Solutions to Conga Advantage Platform (C# & Angular). Contributed to optimizing a critical integration module (SOAP API in Salesforce Apex) between Configurator and Cart",
+      "summary": "Tasked to migrate Salesforce Conga Solutions to Conga Advantage Platform. Contributed to optimizing an integration module (SOAP API in Salesforce Apex) between a configurator and a cart",
       "startDate": "September 2024",
       "endDate": "March 2025",
       "isCurrent": false,
@@ -62,7 +62,7 @@
     },
     {
       "id": 2,
-      "company": "Tesla Eco Tech, PVE, Redline Games (Friend & Falmily Buisnesses)",
+      "company": "Tesla Eco Tech, PVE, Redline Games (MSME's)",
       "role": "Independent Contractor",
       "summary": "Provided consultation on adoption of digital tooling and automation of internal processes. This includes setting up CRM (HubSpot) and automations (Zapier) in the sales lifecycle. Other notable achievements include providing guidance on using tools like Life Cycle Assessment of raw materials for recycling to expand into new markets, adoption of analytics tools (Google/Firebase Analytics) for mobile games to estimate engagement and retention and plan marketing strategies.",
       "startDate": "August 2022",
@@ -74,7 +74,7 @@
       "id": 3,
       "company": "Conga (Formerly Apttus)",
       "role": "Technical Consultant",
-      "summary": "Tasked to provide technical consultation on the Conga Product Suite (SaaS: CPQ, CLM, Revenue Management) to optimize the Quote-to-Cash lifecycle for clients. This also included maintaining existing implementations and providing support for any technical issues that arise. Used standard Salesforce platform & development tools (triggers, flows, formula fields, validation rules) and languages (Apex, Visualforce) to customize and optimize the Conga solutions for clients. This also included providing technical guidance on best practices for using the Conga Product Suite and ensuring that clients are able to fully leverage the capabilities of the platform.",
+      "summary": "Tasked to provide technical consultation on the Conga Product Suite (SaaS: CPQ, CLM, Revenue Management) to improve the Quote-to-Cash experience for clients. This also included maintaining existing implementations and providing support for any technical issues that arise. Used standard Salesforce platform & development tools (triggers, flows, formula fields, validation rules) and languages (Apex, Visualforce) to customize and optimize the Conga solutions for clients. This also included providing technical guidance on best practices for using the Conga Product Suite and ensuring that clients are able to fully leverage the capabilities of the platform.",
       "startDate": "June 2019",
       "endDate": "May 2022",
       "isCurrent": false,
