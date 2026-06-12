@@ -54,7 +54,7 @@
       "id": 1,
       "company": "Accenture",
       "role": "Packaged App Development Analyst",
-      "summary": "Tasked to migrate Salesforce Conga Solutions to Conga Advantage Platform (C# & Angular). Contributed to optimizing a critical integration module (SOAP API in Salesforce Apex) between Configurator and Cart",
+      "summary": "Tasked to support migration of a CPQ solution from Salesforce Conga Solutions to Conga Advantage Platform. Also contributed to optimizing a critical integration module (SOAP API in Salesforce Apex) between Configurator and Cart",
       "startDate": "September 2024",
       "endDate": "March 2025",
       "isCurrent": false,
