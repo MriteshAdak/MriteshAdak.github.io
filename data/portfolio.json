@@ -25,7 +25,7 @@
       "id": 1,
       "name": "LWC application for querying Salesforce Attachments and Files",
       "description": "A Lightning Web Component (LWC) built on the Salesforce platform that allows users to query and manage Attachments and Files directly from their Salesforce org, streamlining document handling and optimizing org storage.",
-      "projectUrl": "https://github.com/MriteshAdak/Reporting-on-Attachments-Salesforce",
+      "projectUrl": "https://github.com/MriteshAdak/Search-Files-and-Attachments",
       "tag": "Salesforce", 
       "imageUrl": null,
       "displayOrder": 0
@@ -43,7 +43,7 @@
       "id": 3,
       "name": "Task Manager",
       "description": "A Basic Task Manager application built with FastAPI, Next.js, and PostgreSQL, featuring RESTful APIs for task management, and a simple frontend interface for task organization and tracking and a database to store the tasks.",
-      "projectUrl": "https://example.com/server-prisma-layer",
+      "projectUrl": "https://task-manager-mritesh.vercel.app/",
       "tag": "Python(FastAPI)",
       "imageUrl": null,
       "displayOrder": 2
