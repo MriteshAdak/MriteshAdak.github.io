@@ -4,18 +4,20 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
   selector: 'app-header',
   imports: [],
   template: `
-    <header class="flex flex-col gap-4 rounded-[2rem] border border-white/10 bg-white/5 p-5 shadow-2xl shadow-slate-950/30 backdrop-blur sm:flex-row sm:items-center sm:justify-between sm:p-6">
-      <div>
-        <p class="text-xs font-semibold uppercase tracking-[0.35em] text-cyan-300">Portfolio</p>
-        <h1 class="mt-2 text-2xl font-semibold text-white sm:text-3xl">
-          {{ heading() }}
-        </h1>
+    <header class="glass-surface-light flex flex-col gap-4 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
+      <div class="flex items-center gap-4">
+        @if (pictureUrl()) {
+          <img [src]="pictureUrl()" alt="Profile Picture" class="w-16 h-16 rounded-full ring-2 ring-white/20 shadow-lg object-cover" />
+        }
+        <div>
+          <p class="eyebrow">Portfolio</p>
+          <h1 class="heading-1 mt-2">
+            {{ heading() }}
+          </h1>
+        </div>
       </div>
 
-      <a
-        href="#contact"
-        class="inline-flex items-center justify-center rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-2 text-sm font-medium text-cyan-100 transition hover:bg-cyan-300/20"
-      >
+      <a href="#contact" class="btn-primary">
         Contact
       </a>
     </header>
@@ -25,4 +27,5 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 })
 export class HeaderComponent {
   readonly heading = input.required<string>();
+  readonly pictureUrl = input<string | undefined>();
 }

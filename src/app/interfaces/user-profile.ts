@@ -3,4 +3,5 @@ export interface UserProfile {
     fullName: string;
     headline?: string | null;
     summary: string;
+    pictureUrl?: string;
 }

@@ -1,0 +1,13 @@
+# Project Instructions (Antigravity)
+
+This project follows strict engineering standards for Angular and TypeScript development.
+
+## Core Mandates
+
+### Angular Development
+@/home/main/projects/MriteshAdak.github.io/.github/instructions/angular.instructions.md
+
+## Workspace Conventions
+- Use Tailwind CSS for styling.
+- Prefer standalone components.
+- Use signals for state management.
