@@ -2,7 +2,8 @@
   "profile": {
     "id": 1,
     "fullName": "Mritesh Adak",
-    "headline": "Computer Science Student with experience in Salesforce (Consulting and Development) specifically in Revenue Operations a.k.a Quote-to-Cash lifecycle using Conga Product Suite. Learning platform agnostic development with Java and TypeScript and experimenting with agentic workflows."
+    "headline": "Computer Science Student with experience in Salesforce (Consulting and Development) specifically in Revenue Operations a.k.a Quote-to-Cash lifecycle using Conga Product Suite. Learning platform agnostic development with Java and TypeScript and experimenting with agentic workflows.",
+    "pictureUrl": "/images/profile.jpg"
   },
   "contact": {
     "email": "mriteshadak@outlook.com",
@@ -54,7 +55,7 @@
       "id": 1,
       "company": "Accenture",
       "role": "Packaged App Development Analyst",
-      "summary": "Tasked to migrate Salesforce Conga Solutions to Conga Advantage Platform (C# & Angular). Contributed to optimizing a critical integration module (SOAP API in Salesforce Apex) between Configurator and Cart",
+      "summary": "Tasked to support migration of a CPQ solution from Salesforce Conga Solutions to Conga Advantage Platform. Also contributed to optimizing a critical integration module (SOAP API in Salesforce Apex) between Configurator and Cart",
       "startDate": "September 2024",
       "endDate": "March 2025",
       "isCurrent": false,
