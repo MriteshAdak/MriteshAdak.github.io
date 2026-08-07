@@ -46,3 +46,5 @@ Thumbs.db
 # Build output
 /dist
 /tmp
+# Windows alternate data stream metadata
+*:[Zz]one.Identifier
