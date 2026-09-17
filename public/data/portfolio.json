@@ -1,14 +1,54 @@
 {
+  "meta": {
+    "pageTitle": "Mritesh Adak | Portfolio",
+    "description": "Portfolio of Mritesh Adak — Computer Science Student & Software Developer",
+    "loadingText": "Loading portfolio data...",
+    "errorText": "Unable to load portfolio data. Please try again later."
+  },
+  "header": {
+    "badge": "Portfolio",
+    "ctaLabel": "Contact",
+    "ctaHref": "#contact"
+  },
+  "sections": {
+    "about": {
+      "id": "about",
+      "eyebrow": "About Me",
+      "title": "M.Sc. Computer Science Student",
+      "cardEyebrow": "Summary",
+      "actionLabel": "Jump to projects",
+      "actionHref": "#projects"
+    },
+    "projects": {
+      "id": "projects",
+      "eyebrow": "Projects",
+      "title": "Personal Projects",
+      "description": "The projects built so far as a computer science student, with more to come as I continue to learn and grow in my skills.",
+      "cardBadgePrefix": "Project",
+      "cardActionLabel": "View project"
+    },
+    "experiences": {
+      "id": "experiences",
+      "eyebrow": "Experiences",
+      "title": "Employment Timeline",
+      "description": "A concise timeline of the roles and responsibilities that shape the skills you see above.",
+      "presentLabel": "Present"
+    },
+    "contact": {
+      "id": "contact",
+      "eyebrow": "Contact details",
+      "title": "Reach me directly",
+      "description": "Email, LinkedIn, and GitHub"
+    }
+  },
   "profile": {
     "id": 1,
     "fullName": "Mritesh Adak",
+    "title": "M.Sc. Computer Science Student",
     "headline": "Computer Science Student with experience in Salesforce (Consulting and Development) specifically in Revenue Operations a.k.a Quote-to-Cash lifecycle using Conga Product Suite. Learning platform agnostic development with Java and TypeScript and experimenting with agentic workflows.",
-    "pictureUrl": "/images/profile.jpg"
-  },
-  "contact": {
-    "email": "mriteshadak@outlook.com",
-    "linkedinUrl": "https://www.linkedin.com/in/mriteshadak",
-    "githubUrl": "https://github.com/MriteshAdak"
+    "summary": "M.Sc. Computer Science Student with hands-on enterprise consulting experience and a focus on modern full-stack development, cloud platforms, and autonomous agentic systems.",
+    "pictureUrl": "/images/profile.jpg",
+    "pictureAlt": "Portrait of Mritesh Adak"
   },
   "highlights": [
     "Salesforce",
@@ -27,7 +67,7 @@
       "name": "LWC application for querying Salesforce Attachments and Files",
       "description": "A Lightning Web Component (LWC) built on the Salesforce platform that allows users to query and manage Attachments and Files directly from their Salesforce org, streamlining document handling and optimizing org storage.",
       "projectUrl": "https://github.com/MriteshAdak/Reporting-on-Attachments-Salesforce",
-      "tag": "Salesforce", 
+      "tags": ["Salesforce", "LWC", "Apex", "SOQL"],
       "imageUrl": null,
       "displayOrder": 0
     },
@@ -36,7 +76,7 @@
       "name": "Insurance Claim Prediction Model",
       "description": "A binary classification model using Python and scikit-learn to predict likely insurance claims based on historical data, comparing multiple algorithms to determine the most effective approach using (FNR) False Negative Rate as the determination metric, demonstrating practical machine learning application and data analysis skills.",
       "projectUrl": "https://github.com/MriteshAdak/prediction-model-binary-classifier",
-      "tag": "Python",
+      "tags": ["Python", "scikit-learn", "Machine Learning", "Data Analysis"],
       "imageUrl": null,
       "displayOrder": 1
     },
@@ -44,8 +84,8 @@
       "id": 3,
       "name": "Task Manager",
       "description": "A Basic Task Manager application built with FastAPI, Next.js, and PostgreSQL, featuring RESTful APIs for task management, and a simple frontend interface for task organization and tracking and a database to store the tasks.",
-      "projectUrl": "https://example.com/server-prisma-layer",
-      "tag": "FastAPI",
+      "projectUrl": "https://github.com/MriteshAdak",
+      "tags": ["FastAPI", "Next.js", "PostgreSQL", "REST API"],
       "imageUrl": null,
       "displayOrder": 2
     }
@@ -56,6 +96,7 @@
       "company": "Accenture",
       "role": "Packaged App Development Analyst",
       "summary": "Tasked to support migration of a CPQ solution from Salesforce Conga Solutions to Conga Advantage Platform. Also contributed to optimizing a critical integration module (SOAP API in Salesforce Apex) between Configurator and Cart",
+      "period": "Sep 2024 — Mar 2025",
       "startDate": "September 2024",
       "endDate": "March 2025",
       "isCurrent": false,
@@ -63,9 +104,10 @@
     },
     {
       "id": 2,
-      "company": "Tesla Eco Tech, PVE, Redline Games (Friend & Falmily Buisnesses)",
+      "company": "Tesla Eco Tech, PVE, Redline Games (Friend & Family Businesses)",
       "role": "Independent Contractor",
       "summary": "Provided consultation on adoption of digital tooling and automation of internal processes. This includes setting up CRM (HubSpot) and automations (Zapier) in the sales lifecycle. Other notable achievements include providing guidance on using tools like Life Cycle Assessment of raw materials for recycling to expand into new markets, adoption of analytics tools (Google/Firebase Analytics) for mobile games to estimate engagement and retention and plan marketing strategies.",
+      "period": "Aug 2022 — Jul 2024",
       "startDate": "August 2022",
       "endDate": "July 2024",
       "isCurrent": false,
@@ -76,11 +118,34 @@
       "company": "Conga (Formerly Apttus)",
       "role": "Technical Consultant",
       "summary": "Tasked to provide technical consultation on the Conga Product Suite (SaaS: CPQ, CLM, Revenue Management) to optimize the Quote-to-Cash lifecycle for clients. This also included maintaining existing implementations and providing support for any technical issues that arise. Used standard Salesforce platform & development tools (triggers, flows, formula fields, validation rules) and languages (Apex, Visualforce) to customize and optimize the Conga solutions for clients. This also included providing technical guidance on best practices for using the Conga Product Suite and ensuring that clients are able to fully leverage the capabilities of the platform.",
+      "period": "Jun 2019 — May 2022",
       "startDate": "June 2019",
       "endDate": "May 2022",
       "isCurrent": false,
       "displayOrder": 2
     }
-
+  ],
+  "contactItems": [
+    {
+      "id": "email",
+      "channel": "Email",
+      "value": "mriteshadak@outlook.com",
+      "href": "mailto:mriteshadak@outlook.com",
+      "actionLabel": "Send email"
+    },
+    {
+      "id": "linkedin",
+      "channel": "LinkedIn",
+      "value": "linkedin.com/in/mriteshadak",
+      "href": "https://www.linkedin.com/in/mriteshadak",
+      "actionLabel": "Open profile"
+    },
+    {
+      "id": "github",
+      "channel": "GitHub",
+      "value": "github.com/MriteshAdak",
+      "href": "https://github.com/MriteshAdak",
+      "actionLabel": "Browse source"
+    }
   ]
 }

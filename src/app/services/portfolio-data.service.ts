@@ -7,7 +7,7 @@ import { PortfolioData } from '../interfaces/portfolio-data';
 export class PortfolioDataService {
   /**
    * Fetches the portfolio data from the static JSON file.
-   * Following single responsibility: this service only handles data retrieval.
+   * Following single responsibility: this service handles data retrieval.
    */
   async getPortfolioData(): Promise<PortfolioData> {
     const response = await fetch('/data/portfolio.json', {
@@ -18,14 +18,17 @@ export class PortfolioDataService {
       throw new Error(`Failed to load portfolio data: ${response.statusText}`);
     }
 
-    const payload = (await response.json()) as Partial<PortfolioData>;
+    const payload = (await response.json()) as PortfolioData;
 
     return {
+      meta: payload.meta,
+      header: payload.header,
+      sections: payload.sections,
       profile: payload.profile ?? null,
-      contact: payload.contact ?? null,
+      highlights: payload.highlights ?? [],
       projects: payload.projects ?? [],
       experiences: payload.experiences ?? [],
-      highlights: payload.highlights ?? [],
+      contactItems: payload.contactItems ?? [],
     };
   }
 }

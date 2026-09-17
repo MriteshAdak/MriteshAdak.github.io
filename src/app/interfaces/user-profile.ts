@@ -1,7 +1,9 @@
 export interface UserProfile {
-    id?: number;
-    fullName: string;
-    headline?: string | null;
-    summary: string;
-    pictureUrl?: string;
+  id?: number;
+  fullName: string;
+  title: string;
+  headline: string;
+  summary: string;
+  pictureUrl?: string;
+  pictureAlt?: string;
 }
