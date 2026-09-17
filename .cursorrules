@@ -5,9 +5,10 @@ This project follows strict engineering standards for Angular and TypeScript dev
 ## Core Mandates
 
 ### Angular Development
-@/home/main/projects/MriteshAdak.github.io/.github/instructions/angular.instructions.md
+Consult the Angular developer skill instructions in `.agents/skills/angular-developer/SKILL.md`.
 
 ## Workspace Conventions
 - Use Tailwind CSS for styling.
 - Prefer standalone components.
 - Use signals for state management.
+- Pure presentation skeletons: all content/copy must be externalized to data files.
