@@ -6,6 +6,9 @@ import { TagsComponent } from '../tags/tags';
 @Component({
   selector: 'app-card',
   imports: [TagsComponent, NgOptimizedImage],
+  host: {
+    class: 'block h-full',
+  },
   template: `
     <article class="glass-surface-light glass-surface-interactive group flex h-full flex-col overflow-hidden">
       @if (project().imageUrl) {

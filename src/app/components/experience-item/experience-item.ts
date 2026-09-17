@@ -4,6 +4,9 @@ import { Experience } from '../../interfaces/experience';
 @Component({
   selector: 'app-experience-item',
   imports: [],
+  host: {
+    class: 'block',
+  },
   template: `
     <article class="glass-surface-light glass-surface-interactive grid gap-4 p-5 sm:grid-cols-[0.85fr_1.15fr] sm:p-6">
       <div>

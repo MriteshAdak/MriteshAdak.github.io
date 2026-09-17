@@ -16,7 +16,7 @@ import { SectionComponent } from '../section/section';
       [actionLabel]="meta().actionLabel"
       [actionHref]="meta().actionHref"
     >
-      <div class="space-y-4">
+      <div class="flex flex-col gap-4">
         @for (experience of experiences(); track experience.id) {
           <app-experience-item
             [experience]="experience"

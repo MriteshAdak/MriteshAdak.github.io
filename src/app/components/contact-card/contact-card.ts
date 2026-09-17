@@ -4,12 +4,15 @@ import { ContactItem } from '../../interfaces/contact-item';
 @Component({
   selector: 'app-contact-card',
   imports: [],
+  host: {
+    class: 'block h-full',
+  },
   template: `
     <a
       [href]="item().href"
       [target]="isExternal() ? '_blank' : '_self'"
       [rel]="isExternal() ? 'noopener noreferrer' : ''"
-      class="glass-surface-light glass-surface-interactive flex flex-col justify-between p-5"
+      class="glass-surface-light glass-surface-interactive flex h-full flex-col justify-between p-5"
     >
       <div>
         <p class="eyebrow">{{ item().channel }}</p>
