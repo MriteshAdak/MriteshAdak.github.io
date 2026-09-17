@@ -88,6 +88,15 @@
       "tags": ["FastAPI", "Next.js", "PostgreSQL", "REST API"],
       "imageUrl": null,
       "displayOrder": 2
+    },
+    {
+      "id": 4,
+      "name": "Autonomous Agent Workflow Engine",
+      "description": "An experimental multi-agent orchestration engine exploring autonomous task delegation, state verification, and automated pair programming workflows.",
+      "projectUrl": "https://github.com/MriteshAdak",
+      "tags": ["TypeScript", "Node.js", "AI Agents", "Architecture"],
+      "imageUrl": null,
+      "displayOrder": 3
     }
   ],
   "experiences": [
@@ -123,6 +132,17 @@
       "endDate": "May 2022",
       "isCurrent": false,
       "displayOrder": 2
+    },
+    {
+      "id": 4,
+      "company": "Open Source Research Lab",
+      "role": "Software Engineering Contributor",
+      "summary": "Collaborated with open-source communities to explore modern web architectures, signal-based reactivity in Angular, and developer tooling automation.",
+      "period": "Apr 2025 — Present",
+      "startDate": "April 2025",
+      "endDate": null,
+      "isCurrent": true,
+      "displayOrder": 3
     }
   ],
   "contactItems": [
