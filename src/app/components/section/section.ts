@@ -7,9 +7,11 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
     <section [id]="id()" class="glass-surface scroll-mt-8 p-6 sm:p-8">
       <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <p class="eyebrow">
-            {{ eyebrow() }}
-          </p>
+          @if (eyebrow()) {
+            <p class="eyebrow">
+              {{ eyebrow() }}
+            </p>
+          }
           <h2 class="heading-1 mt-2">
             {{ title() }}
           </h2>
@@ -20,8 +22,8 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
           }
         </div>
 
-        @if (actionLabel()) {
-          <a [href]="actionHref()" class="btn-secondary">
+        @if (actionLabel() && actionHref()) {
+          <a [href]="actionHref()!" class="btn-secondary">
             {{ actionLabel() }}
           </a>
         }
@@ -35,9 +37,9 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 })
 export class SectionComponent {
   readonly id = input.required<string>();
-  readonly eyebrow = input('Overview');
-  readonly title = input<string>('');
-  readonly description = input('');
-  readonly actionLabel = input('');
-  readonly actionHref = input('#');
+  readonly eyebrow = input<string>('');
+  readonly title = input.required<string>();
+  readonly description = input<string | undefined>();
+  readonly actionLabel = input<string | undefined>();
+  readonly actionHref = input<string | undefined>();
 }
