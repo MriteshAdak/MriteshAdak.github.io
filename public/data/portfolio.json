@@ -34,6 +34,12 @@
       "description": "A concise timeline of the roles and responsibilities that shape the skills you see above.",
       "presentLabel": "Present"
     },
+    "education": {
+      "id": "education",
+      "eyebrow": "Education",
+      "title": "Academic Background",
+      "description": "A brief overview of my academic journey and the institutions that have contributed to my growth."
+    },
     "contact": {
       "id": "contact",
       "eyebrow": "Contact details",
@@ -123,6 +129,38 @@
       "startDate": "June 2019",
       "endDate": "May 2022",
       "isCurrent": false,
+      "displayOrder": 2
+    }
+  ],
+  "education": [
+    {
+      "id": 1,
+      "institution": "University of Texas at Dallas",
+      "degree": "Master of Science in Computer Science",
+      "period": "Aug 2025 — May 2027",
+      "startDate": "August 2025",
+      "endDate": "May 2027",
+      "isCurrent": true,
+      "displayOrder": 0
+    },
+    {
+      "id": 2,
+      "institution": "University of Texas at Dallas",
+      "degree": "Graduate Certificate in Data Analytics",
+      "period": "Aug 2025 — May 2026",
+      "startDate": "August 2025",
+      "endDate": "May 2026",
+      "isCurrent": true,
+      "displayOrder": 1
+    },
+    {
+      "id": 3,
+      "institution": "University of Texas at Dallas",
+      "degree": "Graduate Certificate in Software Engineering",
+      "period": "Aug 2025 — May 2026",
+      "startDate": "August 2025",
+      "endDate": "May 2026",
+      "isCurrent": true,
       "displayOrder": 2
     }
   ],

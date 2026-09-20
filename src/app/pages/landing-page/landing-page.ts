@@ -1,11 +1,19 @@
-import { ChangeDetectionStrategy, Component, OnInit, inject, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnInit,
+  computed,
+  inject,
+  signal,
+} from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { AboutSectionComponent } from '../../components/about-section/about-section';
 import { ContactSectionComponent } from '../../components/contact-section/contact-section';
-import { ExperienceSectionComponent } from '../../components/experience-section/experience-section';
 import { HeaderComponent } from '../../components/header/header';
 import { ProjectsSectionComponent } from '../../components/projects-section/projects-section';
+import { TimelineSectionComponent } from '../../components/timeline-section/timeline-section';
 import { PortfolioData } from '../../interfaces/portfolio-data';
+import { TimelineItem } from '../../interfaces/timeline-item';
 import { PortfolioDataService } from '../../services/portfolio-data.service';
 
 @Component({
@@ -14,7 +22,7 @@ import { PortfolioDataService } from '../../services/portfolio-data.service';
     HeaderComponent,
     AboutSectionComponent,
     ProjectsSectionComponent,
-    ExperienceSectionComponent,
+    TimelineSectionComponent,
     ContactSectionComponent,
   ],
   template: `
@@ -29,26 +37,51 @@ import { PortfolioDataService } from '../../services/portfolio-data.service';
           [ctaHref]="data.header.ctaHref"
         />
 
-        <app-about-section
-          [meta]="data.sections.about"
-          [profile]="data.profile"
-          [highlights]="data.highlights"
-        />
-
-        <app-projects-section
-          [meta]="data.sections.projects"
-          [projects]="data.projects"
-        />
-
-        <app-experience-section
-          [meta]="data.sections.experiences"
-          [experiences]="data.experiences"
-        />
-
-        <app-contact-section
-          [meta]="data.sections.contact"
-          [items]="data.contactItems"
-        />
+        @for (key of sectionKeys(); track key) {
+          @switch (key) {
+            @case ('about') {
+              <app-about-section
+                [meta]="data.sections.about"
+                [profile]="data.profile"
+                [highlights]="data.highlights"
+              />
+            }
+            @case ('projects') {
+              <app-projects-section
+                [meta]="data.sections.projects"
+                [projects]="data.projects"
+              />
+            }
+            @case ('experiences') {
+              <app-timeline-section
+                [meta]="data.sections.experiences"
+                [items]="experienceItems()"
+              />
+            }
+            @case ('education') {
+              @if (data.sections.education; as eduMeta) {
+                <app-timeline-section
+                  [meta]="eduMeta"
+                  [items]="educationItems()"
+                />
+              }
+            }
+            @case ('contact') {
+              <app-contact-section
+                [meta]="data.sections.contact"
+                [items]="data.contactItems"
+              />
+            }
+            @default {
+              @if (data.sections[key]; as meta) {
+                <app-timeline-section
+                  [meta]="meta"
+                  [items]="getTimelineItems(key)"
+                />
+              }
+            }
+          }
+        }
       } @else if (loading()) {
         <section class="glass-surface p-6 sm:p-8" aria-busy="true">
           <p class="body-text">{{ loadingMessage() }}</p>
@@ -72,8 +105,73 @@ export class LandingPageComponent implements OnInit {
   protected readonly errorMessage = signal<string | null>(null);
   protected readonly portfolio = signal<PortfolioData | null>(null);
 
+  protected readonly sectionKeys = computed<string[]>(() => {
+    const sections = this.portfolio()?.sections;
+    return sections ? Object.keys(sections) : [];
+  });
+
+  protected readonly experienceItems = computed<TimelineItem[]>(() => {
+    const experiences = this.portfolio()?.experiences ?? [];
+    return [...experiences]
+      .sort((a, b) => a.displayOrder - b.displayOrder)
+      .map((exp) => ({
+        id: exp.id,
+        title: exp.role,
+        subtitle: exp.company,
+        period: exp.period,
+        startDate: exp.startDate,
+        endDate: exp.endDate,
+        isCurrent: exp.isCurrent,
+        description: exp.summary,
+        displayOrder: exp.displayOrder,
+      }));
+  });
+
+  protected readonly educationItems = computed<TimelineItem[]>(() => {
+    const education = this.portfolio()?.education ?? [];
+    return [...education]
+      .sort((a, b) => a.displayOrder - b.displayOrder)
+      .map((edu) => ({
+        id: edu.id,
+        title: edu.degree,
+        subtitle: edu.institution,
+        period: edu.period,
+        startDate: edu.startDate,
+        endDate: edu.endDate,
+        isCurrent: edu.isCurrent,
+        description: edu.description,
+        displayOrder: edu.displayOrder,
+      }));
+  });
+
   async ngOnInit(): Promise<void> {
     await this.loadPortfolioData();
+  }
+
+  protected getTimelineItems(key: string): TimelineItem[] {
+    if (key === 'experiences') {
+      return this.experienceItems();
+    }
+    if (key === 'education') {
+      return this.educationItems();
+    }
+    const rawList = (this.portfolio() as Record<string, unknown> | null)?.[key];
+    if (!Array.isArray(rawList)) {
+      return [];
+    }
+    return (rawList as Record<string, unknown>[])
+      .map((item, idx) => ({
+        id: (item['id'] as string | number | undefined) ?? idx,
+        title: ((item['title'] ?? item['role'] ?? item['degree'] ?? '') as string),
+        subtitle: ((item['subtitle'] ?? item['company'] ?? item['institution'] ?? '') as string),
+        period: ((item['period'] ?? '') as string),
+        startDate: (item['startDate'] as string | undefined),
+        endDate: (item['endDate'] as string | null | undefined),
+        isCurrent: (item['isCurrent'] as boolean | undefined),
+        description: ((item['description'] ?? item['summary']) as string | undefined),
+        displayOrder: ((item['displayOrder'] ?? idx) as number),
+      }))
+      .sort((a, b) => (a.displayOrder ?? 0) - (b.displayOrder ?? 0));
   }
 
   private async loadPortfolioData(): Promise<void> {

@@ -5,6 +5,7 @@ export interface SectionMeta {
   description?: string;
   actionLabel?: string;
   actionHref?: string;
+  [key: string]: unknown;
 }
 
 export interface AboutSectionMeta extends SectionMeta {
