@@ -34,10 +34,16 @@
       "description": "A concise timeline of the roles and responsibilities that shape the skills you see above.",
       "presentLabel": "Present"
     },
+    "education": {
+      "id": "education",
+      "eyebrow": "Education",
+      "title": "Academic Background",
+      "description": "A brief overview of my academic journey and the institutions that have contributed to my growth."
+    },
     "contact": {
       "id": "contact",
-      "eyebrow": "Contact details",
-      "title": "Reach me directly",
+      "eyebrow": "Contact details and important links",
+      "title": "Reach out to me directly",
       "description": "Email, LinkedIn, and GitHub"
     }
   },
@@ -101,6 +107,7 @@
       "startDate": "September 2024",
       "endDate": "March 2025",
       "isCurrent": false,
+      "location": "Pune, India",
       "displayOrder": 0
     },
     {
@@ -112,6 +119,7 @@
       "startDate": "August 2022",
       "endDate": "July 2024",
       "isCurrent": false,
+      "location": "Vapi, India",
       "displayOrder": 1
     },
     {
@@ -123,6 +131,42 @@
       "startDate": "June 2019",
       "endDate": "May 2022",
       "isCurrent": false,
+      "location": "Ahmedabad, India",
+      "displayOrder": 2
+    }
+  ],
+  "education": [
+    {
+      "id": 1,
+      "institution": "International University of Applied Sciences",
+      "degree": "Master of Science in Computer Science",
+      "period": "April 2025 — Present",
+      "startDate": "April 2025",
+      "endDate": "March 2027",
+      "isCurrent": true,
+      "location": "Berlin, Germany",
+      "displayOrder": 0
+    },
+    {
+      "id": 2,
+      "institution": "Parul Institute of Engineering & Technology",
+      "degree": "Bachelor of Technology in Computer Science & Engineering",
+      "period": "August 2015 — April 2019",
+      "startDate": "August 2015",
+      "endDate": "April 2019",
+      "isCurrent": false,
+      "location": "Vadodara, India",
+      "displayOrder": 1
+    },
+    {
+      "id": 3,
+      "institution": "St. Xavier's High School (Ryan International)",
+      "degree": "Higher/Upper Secondary School Certificate (12th Grade)",
+      "period": "2013 - 2015",
+      "startDate": "August 2013",
+      "endDate": "May 2015",
+      "isCurrent": false,
+      "location": "Vapi, India",
       "displayOrder": 2
     }
   ],
