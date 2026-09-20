@@ -90,6 +90,7 @@ describe('LandingPageComponent', () => {
         degree: 'Master of Science in Computer Science',
         period: 'Aug 2025 — May 2027',
         isCurrent: true,
+        location: 'Richardson, TX',
         displayOrder: 0,
       },
     ],
@@ -134,6 +135,7 @@ describe('LandingPageComponent', () => {
     expect(el.textContent).toContain('Academic Background');
     expect(el.textContent).toContain('Master of Science in Computer Science');
     expect(el.textContent).toContain('University of Texas at Dallas');
+    expect(el.textContent).toContain('Richardson, TX');
     expect(el.textContent).toContain('Work History');
     expect(el.textContent).toContain('Project One');
   });

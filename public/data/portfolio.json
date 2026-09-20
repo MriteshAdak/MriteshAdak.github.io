@@ -107,6 +107,7 @@
       "startDate": "September 2024",
       "endDate": "March 2025",
       "isCurrent": false,
+      "location": "India",
       "displayOrder": 0
     },
     {
@@ -118,6 +119,7 @@
       "startDate": "August 2022",
       "endDate": "July 2024",
       "isCurrent": false,
+      "location": "Remote",
       "displayOrder": 1
     },
     {
@@ -129,6 +131,7 @@
       "startDate": "June 2019",
       "endDate": "May 2022",
       "isCurrent": false,
+      "location": "India",
       "displayOrder": 2
     }
   ],
@@ -141,6 +144,7 @@
       "startDate": "August 2025",
       "endDate": "May 2027",
       "isCurrent": true,
+      "location": "Richardson, TX",
       "displayOrder": 0
     },
     {
@@ -151,6 +155,7 @@
       "startDate": "August 2025",
       "endDate": "May 2026",
       "isCurrent": true,
+      "location": "Richardson, TX",
       "displayOrder": 1
     },
     {
@@ -161,6 +166,7 @@
       "startDate": "August 2025",
       "endDate": "May 2026",
       "isCurrent": true,
+      "location": "Richardson, TX",
       "displayOrder": 2
     }
   ],

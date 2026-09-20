@@ -50,4 +50,20 @@ describe('TimelineItemComponent', () => {
     const el = fixture.nativeElement as HTMLElement;
     expect(el.textContent).toContain('Built scalable cloud solutions.');
   });
+
+  it('should render location tag when provided', async () => {
+    fixture.componentRef.setInput('item', {
+      id: 3,
+      title: 'Master of Science in Computer Science',
+      subtitle: 'University of Texas at Dallas',
+      location: 'Richardson, TX',
+      period: 'Aug 2025 — May 2027',
+      displayOrder: 0,
+    });
+    fixture.detectChanges();
+    await fixture.whenStable();
+
+    const el = fixture.nativeElement as HTMLElement;
+    expect(el.textContent).toContain('Richardson, TX');
+  });
 });

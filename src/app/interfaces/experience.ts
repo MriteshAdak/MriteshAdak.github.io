@@ -7,5 +7,6 @@ export interface Experience {
   startDate?: string;
   endDate?: string | null;
   isCurrent?: boolean;
+  location?: string;
   displayOrder: number;
 }

@@ -7,5 +7,6 @@ export interface TimelineItem {
   endDate?: string | null;
   isCurrent?: boolean;
   description?: string;
+  location?: string;
   displayOrder?: number;
 }

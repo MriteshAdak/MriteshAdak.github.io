@@ -7,5 +7,6 @@ export interface Education {
   endDate?: string | null;
   isCurrent?: boolean;
   description?: string;
+  location?: string;
   displayOrder: number;
 }

@@ -35,4 +35,21 @@ describe('ExperienceItemComponent', () => {
     expect(el.textContent).toContain('Tech Corp');
     expect(el.textContent).toContain('2022 — Present');
   });
+
+  it('should render location when provided', async () => {
+    fixture.componentRef.setInput('experience', {
+      id: 2,
+      company: 'Tech Corp',
+      role: 'Senior Engineer',
+      summary: 'Architected scalable services.',
+      period: '2022 — Present',
+      location: 'Dallas, TX',
+      displayOrder: 0,
+    });
+    fixture.detectChanges();
+    await fixture.whenStable();
+
+    const el = fixture.nativeElement as HTMLElement;
+    expect(el.textContent).toContain('Dallas, TX');
+  });
 });

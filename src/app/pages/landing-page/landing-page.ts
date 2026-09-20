@@ -123,6 +123,7 @@ export class LandingPageComponent implements OnInit {
         endDate: exp.endDate,
         isCurrent: exp.isCurrent,
         description: exp.summary,
+        location: exp.location,
         displayOrder: exp.displayOrder,
       }));
   });
@@ -140,6 +141,7 @@ export class LandingPageComponent implements OnInit {
         endDate: edu.endDate,
         isCurrent: edu.isCurrent,
         description: edu.description,
+        location: edu.location,
         displayOrder: edu.displayOrder,
       }));
   });
@@ -169,6 +171,7 @@ export class LandingPageComponent implements OnInit {
         endDate: (item['endDate'] as string | null | undefined),
         isCurrent: (item['isCurrent'] as boolean | undefined),
         description: ((item['description'] ?? item['summary']) as string | undefined),
+        location: (item['location'] as string | undefined),
         displayOrder: ((item['displayOrder'] ?? idx) as number),
       }))
       .sort((a, b) => (a.displayOrder ?? 0) - (b.displayOrder ?? 0));
