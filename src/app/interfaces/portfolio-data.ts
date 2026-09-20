@@ -1,4 +1,5 @@
 import { ContactItem } from './contact-item';
+import { Education } from './education';
 import { Experience } from './experience';
 import { HeaderConfig } from './header-config';
 import { PageMeta } from './page-meta';
@@ -14,5 +15,7 @@ export interface PortfolioData {
   highlights: string[];
   projects: Project[];
   experiences: Experience[];
+  education?: Education[];
   contactItems: ContactItem[];
+  [key: string]: unknown;
 }

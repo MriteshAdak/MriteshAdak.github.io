@@ -16,7 +16,11 @@ export interface ProjectsSectionMeta extends SectionMeta {
   cardActionLabel: string;
 }
 
-export interface ExperiencesSectionMeta extends SectionMeta {
+export interface TimelineSectionMeta extends SectionMeta {
+  presentLabel?: string;
+}
+
+export interface ExperiencesSectionMeta extends TimelineSectionMeta {
   presentLabel: string;
 }
 
@@ -24,5 +28,7 @@ export interface SectionsConfig {
   about: AboutSectionMeta;
   projects: ProjectsSectionMeta;
   experiences: ExperiencesSectionMeta;
+  education?: TimelineSectionMeta;
   contact: SectionMeta;
+  [key: string]: SectionMeta | undefined;
 }

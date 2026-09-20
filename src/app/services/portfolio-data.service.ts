@@ -21,6 +21,7 @@ export class PortfolioDataService {
     const payload = (await response.json()) as PortfolioData;
 
     return {
+      ...payload,
       meta: payload.meta,
       header: payload.header,
       sections: payload.sections,
@@ -28,6 +29,7 @@ export class PortfolioDataService {
       highlights: payload.highlights ?? [],
       projects: payload.projects ?? [],
       experiences: payload.experiences ?? [],
+      education: payload.education ?? [],
       contactItems: payload.contactItems ?? [],
     };
   }
