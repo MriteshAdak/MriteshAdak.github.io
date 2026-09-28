@@ -36,9 +36,8 @@ describe('TimelineSectionComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render section title and items', () => {
+  it('should render items', () => {
     const el = fixture.nativeElement as HTMLElement;
-    expect(el.textContent).toContain('Academic Background');
     expect(el.textContent).toContain('Master of Science in Computer Science');
     expect(el.textContent).toContain('University of Texas at Dallas');
   });

@@ -4,32 +4,13 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
   selector: 'app-section',
   imports: [],
   template: `
-    <section [id]="id()" class="glass-surface scroll-mt-8 p-6 sm:p-8">
-      <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-        <div>
-          @if (eyebrow()) {
-            <p class="eyebrow">
-              {{ eyebrow() }}
-            </p>
-          }
-          <h2 class="heading-1 mt-2">
-            {{ title() }}
-          </h2>
-          @if (description()) {
-            <p class="body-text mt-3 max-w-3xl">
-              {{ description() }}
-            </p>
-          }
-        </div>
-
-        @if (actionLabel() && actionHref()) {
-          <a [href]="actionHref()!" class="btn-secondary">
-            {{ actionLabel() }}
-          </a>
-        }
+    <section
+      [id]="id()"
+      class="relative flex flex-col justify-center w-full min-h-screen pt-20 pb-8 pl-16 sm:pl-20 lg:pl-28 xl:pl-32 pr-6 sm:pr-10 lg:pr-14 xl:pr-16"
+    >
+      <div class="w-full flex flex-col justify-center flex-1 min-h-0">
+        <ng-content></ng-content>
       </div>
-
-      <ng-content></ng-content>
     </section>
   `,
   styles: ``,
@@ -37,9 +18,4 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 })
 export class SectionComponent {
   readonly id = input.required<string>();
-  readonly eyebrow = input<string>('');
-  readonly title = input.required<string>();
-  readonly description = input<string | undefined>();
-  readonly actionLabel = input<string | undefined>();
-  readonly actionHref = input<string | undefined>();
 }

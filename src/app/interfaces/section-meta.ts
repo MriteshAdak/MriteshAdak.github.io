@@ -30,6 +30,6 @@ export interface SectionsConfig {
   projects: ProjectsSectionMeta;
   experiences: ExperiencesSectionMeta;
   education?: TimelineSectionMeta;
-  contact: SectionMeta;
+  connect: SectionMeta;
   [key: string]: SectionMeta | undefined;
 }

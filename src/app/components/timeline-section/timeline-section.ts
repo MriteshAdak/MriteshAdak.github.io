@@ -1,29 +1,25 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { TimelineSectionMeta } from '../../interfaces/section-meta';
 import { TimelineItem } from '../../interfaces/timeline-item';
+import { CarouselComponent } from '../carousel/carousel';
 import { SectionComponent } from '../section/section';
 import { TimelineItemComponent } from '../timeline-item/timeline-item';
 
 @Component({
   selector: 'app-timeline-section',
-  imports: [SectionComponent, TimelineItemComponent],
+  imports: [SectionComponent, CarouselComponent, TimelineItemComponent],
   template: `
-    <app-section
-      [id]="meta().id"
-      [eyebrow]="meta().eyebrow"
-      [title]="meta().title"
-      [description]="meta().description"
-      [actionLabel]="meta().actionLabel"
-      [actionHref]="meta().actionHref"
-    >
-      <div class="flex flex-col gap-4">
+    <app-section [id]="meta().id">
+      <app-carousel [itemCount]="items().length">
         @for (item of items(); track item.id) {
-          <app-timeline-item
-            [item]="item"
-            [presentLabel]="meta().presentLabel ?? 'Present'"
-          />
+          <div class="section-card-slide">
+            <app-timeline-item
+              [item]="item"
+              [presentLabel]="meta().presentLabel ?? 'Present'"
+            />
+          </div>
         }
-      </div>
+      </app-carousel>
     </app-section>
   `,
   styles: ``,

@@ -7,38 +7,32 @@ import { TagsComponent } from '../tags/tags';
   selector: 'app-card',
   imports: [TagsComponent, NgOptimizedImage],
   host: {
-    class: 'block h-full',
+    class: 'flex flex-col flex-1 h-full min-h-0',
   },
   template: `
-    <article class="glass-surface-light glass-surface-interactive group flex h-full flex-col overflow-hidden">
+    <article class="glass-surface-light glass-surface-interactive group flex flex-col flex-1 h-full min-h-0 overflow-hidden">
       @if (project().imageUrl) {
-        <div class="relative h-44 w-full">
+        <div class="relative h-44 w-full shrink-0">
           <img [ngSrc]="project().imageUrl!" [alt]="project().name" fill class="object-cover" />
         </div>
       }
-      <div class="flex flex-1 flex-col gap-4 p-5 sm:p-6">
-        <div class="flex items-center justify-between gap-4">
-          @if (badgePrefix()) {
-            <p class="text-xs uppercase tracking-[0.3em] text-cyan-300">
-              {{ badgePrefix() }} {{ project().displayOrder + 1 }}
-            </p>
-          }
-          @if (project().tags.length > 0) {
-            <span class="rounded-full bg-white/5 px-3 py-1 text-xs text-slate-300">
-              {{ project().tags[0] }}
-            </span>
-          }
+      <div class="flex flex-1 flex-col justify-between overflow-hidden p-6 sm:p-8 min-h-0">
+        <div class="flex flex-1 flex-col min-h-0 overflow-hidden space-y-3">
+          <h3 class="text-xl sm:text-2xl font-semibold text-white shrink-0 line-clamp-2">{{ project().name }}</h3>
+          <div class="overflow-y-auto flex-1 pr-1 [scrollbar-width:thin]">
+            <p class="body-text text-sm sm:text-base leading-relaxed">{{ project().description }}</p>
+          </div>
         </div>
 
-        <div class="space-y-3">
-          <h3 class="text-xl font-semibold text-white">{{ project().name }}</h3>
-          <p class="body-text text-sm">{{ project().description }}</p>
-        </div>
-
-        <div class="mt-auto flex flex-wrap items-center justify-between gap-4 pt-3">
-          <app-tags [tags]="project().tags" />
+        <div class="mt-6 flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-white/5 shrink-0">
+          <app-tags [tags]="project().tags" class="flex-1 min-w-0" />
           @if (actionLabel() && project().projectUrl) {
-            <a [href]="project().projectUrl" target="_blank" rel="noopener noreferrer" class="btn-primary">
+            <a
+              [href]="project().projectUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-primary shrink-0 ml-auto"
+            >
               {{ actionLabel() }}
             </a>
           }
@@ -51,6 +45,5 @@ import { TagsComponent } from '../tags/tags';
 })
 export class CardComponent {
   readonly project = input.required<Project>();
-  readonly badgePrefix = input<string>('');
   readonly actionLabel = input<string>('');
 }

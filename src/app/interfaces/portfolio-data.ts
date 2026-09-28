@@ -1,4 +1,4 @@
-import { ContactItem } from './contact-item';
+import { ConnectItem } from './connect-item';
 import { Education } from './education';
 import { Experience } from './experience';
 import { HeaderConfig } from './header-config';
@@ -16,6 +16,6 @@ export interface PortfolioData {
   projects: Project[];
   experiences: Experience[];
   education?: Education[];
-  contactItems: ContactItem[];
+  connectItems: ConnectItem[];
   [key: string]: unknown;
 }

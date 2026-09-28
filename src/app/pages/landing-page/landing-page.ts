@@ -1,15 +1,19 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  ElementRef,
+  HostListener,
   OnInit,
   computed,
   inject,
   signal,
+  viewChild,
 } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { AboutSectionComponent } from '../../components/about-section/about-section';
-import { ContactSectionComponent } from '../../components/contact-section/contact-section';
-import { HeaderComponent } from '../../components/header/header';
+import { CarouselProgressComponent, CarouselSectionMeta } from '../../components/carousel-progress/carousel-progress';
+import { ConnectSectionComponent } from '../../components/connect-section/connect-section';
+import { HomeSectionComponent } from '../../components/home-section/home-section';
+import { NavbarComponent } from '../../components/navbar/navbar';
 import { ProjectsSectionComponent } from '../../components/projects-section/projects-section';
 import { TimelineSectionComponent } from '../../components/timeline-section/timeline-section';
 import { PortfolioData } from '../../interfaces/portfolio-data';
@@ -19,78 +23,116 @@ import { PortfolioDataService } from '../../services/portfolio-data.service';
 @Component({
   selector: 'app-landing-page',
   imports: [
-    HeaderComponent,
-    AboutSectionComponent,
+    NavbarComponent,
+    CarouselProgressComponent,
+    HomeSectionComponent,
     ProjectsSectionComponent,
     TimelineSectionComponent,
-    ContactSectionComponent,
+    ConnectSectionComponent,
   ],
   template: `
-    <main class="mx-auto flex min-h-screen w-full max-w-6xl flex-col gap-8 px-4 py-6 sm:px-6 lg:px-8 lg:py-10">
-      @if (portfolio(); as data) {
-        <app-header
-          [heading]="data.profile?.fullName ?? ''"
-          [badge]="data.header.badge"
-          [pictureUrl]="data.profile?.pictureUrl"
-          [pictureAlt]="data.profile?.pictureAlt ?? ''"
-          [ctaLabel]="data.header.ctaLabel"
-          [ctaHref]="data.header.ctaHref"
-        />
+    <main class="relative min-h-screen w-full overflow-hidden">
+      <!-- Fixed Top Navigation Bar spanning whole window width -->
+      <app-navbar
+        [activeId]="activeSectionId()"
+        (navClick)="scrollToSection($event)"
+      />
 
-        @for (key of sectionKeys(); track key) {
-          @switch (key) {
-            @case ('about') {
-              <app-about-section
-                [meta]="data.sections.about"
-                [profile]="data.profile"
-                [highlights]="data.highlights"
-              />
-            }
-            @case ('projects') {
-              <app-projects-section
-                [meta]="data.sections.projects"
-                [projects]="data.projects"
-              />
-            }
-            @case ('experiences') {
+      <!-- Left Vertical Carousel Progress Bar -->
+      <app-carousel-progress
+        [sections]="carouselSections"
+        [activeSectionId]="activeSectionId()"
+        (sectionSelect)="scrollToSection($event)"
+        (next)="goToNextSection()"
+        (prev)="goToPrevSection()"
+      />
+
+      <!-- Full-Page Carousel Scroll Container spanning 100% window width and height -->
+      <div
+        #carouselContainer
+        (scroll)="onContainerScroll()"
+        class="h-screen w-full overflow-y-auto snap-y snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+      >
+        @if (portfolio(); as data) {
+          <!-- 1: About / Home Section Slide -->
+          <div
+            id="about"
+            data-section="about"
+            class="min-h-screen w-full snap-start snap-always flex flex-col justify-center"
+          >
+            <app-home-section
+              [name]="data.profile?.fullName ?? 'Mritesh Adak'"
+              [title]="data.profile?.title || ''"
+              [summary]="data.profile?.headline ?? ''"
+              [pictureUrl]="data.profile?.pictureUrl"
+              [pictureAlt]="data.profile?.pictureAlt ?? 'Portrait of Mritesh Adak'"
+              [highlights]="data.highlights"
+            />
+          </div>
+
+          <!-- 2: Portfolio / Projects Section Slide -->
+          <div
+            id="projects"
+            data-section="projects"
+            class="min-h-screen w-full snap-start snap-always flex flex-col justify-center"
+          >
+            <app-projects-section
+              [meta]="data.sections.projects"
+              [projects]="data.projects"
+            />
+          </div>
+
+          <!-- 3: Experiences / Work Experience Section Slide -->
+          <div
+            id="experiences"
+            data-section="experiences"
+            class="min-h-screen w-full snap-start snap-always flex flex-col justify-center"
+          >
+            <app-timeline-section
+              [meta]="data.sections.experiences"
+              [items]="experienceItems()"
+            />
+          </div>
+
+          <!-- 4: Education / Academics Section Slide -->
+          @if (data.sections.education; as eduMeta) {
+            <div
+              id="education"
+              data-section="education"
+              class="min-h-screen w-full snap-start snap-always flex flex-col justify-center"
+            >
               <app-timeline-section
-                [meta]="data.sections.experiences"
-                [items]="experienceItems()"
+                [meta]="eduMeta"
+                [items]="educationItems()"
               />
-            }
-            @case ('education') {
-              @if (data.sections.education; as eduMeta) {
-                <app-timeline-section
-                  [meta]="eduMeta"
-                  [items]="educationItems()"
-                />
-              }
-            }
-            @case ('contact') {
-              <app-contact-section
-                [meta]="data.sections.contact"
-                [items]="data.contactItems"
-              />
-            }
-            @default {
-              @if (data.sections[key]; as meta) {
-                <app-timeline-section
-                  [meta]="meta"
-                  [items]="getTimelineItems(key)"
-                />
-              }
-            }
+            </div>
           }
+
+          <!-- 5: Connect Section Slide -->
+          <div
+            id="connect"
+            data-section="connect"
+            class="min-h-screen w-full snap-start snap-always flex flex-col justify-center"
+          >
+            <app-connect-section
+              [meta]="data.sections.connect"
+              [items]="data.connectItems"
+            />
+          </div>
+        } @else if (loading()) {
+          <div class="min-h-screen w-full flex items-center justify-center">
+            <section class="p-6 sm:p-8" aria-busy="true">
+              <p class="body-text">{{ loadingMessage() }}</p>
+            </section>
+          </div>
+        } @else if (errorMessage()) {
+          <div class="min-h-screen w-full flex items-center justify-center">
+            <section class="border-rose-400/30 bg-rose-400/10 p-6 sm:p-8 rounded-2xl" role="alert">
+              <p class="body-text text-rose-100">{{ errorMessage() }}</p>
+            </section>
+          </div>
         }
-      } @else if (loading()) {
-        <section class="glass-surface p-6 sm:p-8" aria-busy="true">
-          <p class="body-text">{{ loadingMessage() }}</p>
-        </section>
-      } @else if (errorMessage()) {
-        <section class="glass-surface border-rose-400/30 bg-rose-400/10 p-6 sm:p-8" role="alert">
-          <p class="body-text text-rose-100">{{ errorMessage() }}</p>
-        </section>
-      }
+      </div>
     </main>
   `,
   styles: ``,
@@ -100,16 +142,22 @@ export class LandingPageComponent implements OnInit {
   private readonly portfolioDataService = inject(PortfolioDataService);
   private readonly titleService = inject(Title);
 
+  protected readonly carouselContainer =
+    viewChild<ElementRef<HTMLDivElement>>('carouselContainer');
+
+  readonly carouselSections: readonly CarouselSectionMeta[] = [
+    { id: 'about', label: 'About' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'experiences', label: 'Work Experience' },
+    { id: 'education', label: 'Academics' },
+    { id: 'connect', label: 'Connect' },
+  ];
+
+  protected readonly activeSectionId = signal<string>('about');
   protected readonly loading = signal(true);
   protected readonly loadingMessage = signal('Loading...');
   protected readonly errorMessage = signal<string | null>(null);
   protected readonly portfolio = signal<PortfolioData | null>(null);
-
-  protected readonly sectionKeys = computed<string[]>(() => {
-    const sections = this.portfolio()?.sections;
-    return sections ? Object.keys(sections) : [];
-  });
-
   protected readonly experienceItems = computed<TimelineItem[]>(() => {
     const experiences = this.portfolio()?.experiences ?? [];
     return [...experiences]
@@ -150,31 +198,80 @@ export class LandingPageComponent implements OnInit {
     await this.loadPortfolioData();
   }
 
-  protected getTimelineItems(key: string): TimelineItem[] {
-    if (key === 'experiences') {
-      return this.experienceItems();
+  @HostListener('window:keydown', ['$event'])
+  handleKeyDown(event: KeyboardEvent): void {
+    if (event.key === 'ArrowDown' || event.key === 'PageDown') {
+      event.preventDefault();
+      this.goToNextSection();
+    } else if (event.key === 'ArrowUp' || event.key === 'PageUp') {
+      event.preventDefault();
+      this.goToPrevSection();
     }
-    if (key === 'education') {
-      return this.educationItems();
+  }
+
+  protected scrollToSection(id: string): void {
+    const container = this.carouselContainer()?.nativeElement;
+    if (!container) return;
+
+    const targetId = id === 'home' ? 'about' : id;
+    const targetEl = container.querySelector(
+      `[data-section="${targetId}"]`
+    ) as HTMLElement | null;
+
+    if (targetEl) {
+      targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      this.activeSectionId.set(targetId);
     }
-    const rawList = (this.portfolio() as Record<string, unknown> | null)?.[key];
-    if (!Array.isArray(rawList)) {
-      return [];
+  }
+
+  protected goToNextSection(): void {
+    const currentId = this.activeSectionId();
+    const idx = this.carouselSections.findIndex(
+      (s) => s.id === currentId || (currentId === 'home' && s.id === 'about')
+    );
+    if (idx >= 0 && idx < this.carouselSections.length - 1) {
+      this.scrollToSection(this.carouselSections[idx + 1].id);
     }
-    return (rawList as Record<string, unknown>[])
-      .map((item, idx) => ({
-        id: (item['id'] as string | number | undefined) ?? idx,
-        title: ((item['title'] ?? item['role'] ?? item['degree'] ?? '') as string),
-        subtitle: ((item['subtitle'] ?? item['company'] ?? item['institution'] ?? '') as string),
-        period: ((item['period'] ?? '') as string),
-        startDate: (item['startDate'] as string | undefined),
-        endDate: (item['endDate'] as string | null | undefined),
-        isCurrent: (item['isCurrent'] as boolean | undefined),
-        description: ((item['description'] ?? item['summary']) as string | undefined),
-        location: (item['location'] as string | undefined),
-        displayOrder: ((item['displayOrder'] ?? idx) as number),
-      }))
-      .sort((a, b) => (a.displayOrder ?? 0) - (b.displayOrder ?? 0));
+  }
+
+  protected goToPrevSection(): void {
+    const currentId = this.activeSectionId();
+    const idx = this.carouselSections.findIndex(
+      (s) => s.id === currentId || (currentId === 'home' && s.id === 'about')
+    );
+    if (idx > 0) {
+      this.scrollToSection(this.carouselSections[idx - 1].id);
+    }
+  }
+
+  protected onContainerScroll(): void {
+    const container = this.carouselContainer()?.nativeElement;
+    if (!container) return;
+
+    const sectionElements = Array.from(
+      container.querySelectorAll<HTMLElement>('[data-section]')
+    );
+    if (sectionElements.length === 0) return;
+
+    const containerTop = container.scrollTop;
+    const containerCenter = containerTop + container.clientHeight / 2;
+
+    let closestId = this.carouselSections[0].id;
+    let minDiff = Infinity;
+
+    for (const el of sectionElements) {
+      const elCenter = el.offsetTop + el.clientHeight / 2;
+      const diff = Math.abs(containerCenter - elCenter);
+      if (diff < minDiff) {
+        minDiff = diff;
+        const sid = el.getAttribute('data-section');
+        if (sid) closestId = sid;
+      }
+    }
+
+    if (this.activeSectionId() !== closestId) {
+      this.activeSectionId.set(closestId);
+    }
   }
 
   private async loadPortfolioData(): Promise<void> {

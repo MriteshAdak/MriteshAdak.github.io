@@ -18,8 +18,8 @@ describe('LandingPageComponent', () => {
     },
     header: {
       badge: 'Portfolio',
-      ctaLabel: 'Contact',
-      ctaHref: '#contact',
+      ctaLabel: 'Connect',
+      ctaHref: '#connect',
     },
     sections: {
       about: {
@@ -47,10 +47,10 @@ describe('LandingPageComponent', () => {
         cardBadgePrefix: 'Project',
         cardActionLabel: 'View',
       },
-      contact: {
-        id: 'contact',
-        eyebrow: 'Contact',
-        title: 'Get in Touch',
+      connect: {
+        id: 'connect',
+        eyebrow: 'Connect',
+        title: 'Connect',
       },
     },
     profile: {
@@ -94,7 +94,7 @@ describe('LandingPageComponent', () => {
         displayOrder: 0,
       },
     ],
-    contactItems: [
+    connectItems: [
       {
         id: 'email',
         channel: 'Email',
@@ -132,11 +132,10 @@ describe('LandingPageComponent', () => {
 
   it('should render sections including education dynamically based on portfolio keys', () => {
     const el = fixture.nativeElement as HTMLElement;
-    expect(el.textContent).toContain('Academic Background');
     expect(el.textContent).toContain('Master of Science in Computer Science');
     expect(el.textContent).toContain('University of Texas at Dallas');
     expect(el.textContent).toContain('Richardson, TX');
-    expect(el.textContent).toContain('Work History');
+    expect(el.textContent).toContain('Company A');
     expect(el.textContent).toContain('Project One');
   });
 

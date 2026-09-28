@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ContactCardComponent } from './contact-card';
+import { ConnectCardComponent } from './connect-card';
 
-describe('ContactCardComponent', () => {
-  let component: ContactCardComponent;
-  let fixture: ComponentFixture<ContactCardComponent>;
+describe('ConnectCardComponent', () => {
+  let component: ConnectCardComponent;
+  let fixture: ComponentFixture<ConnectCardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ContactCardComponent],
+      imports: [ConnectCardComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ContactCardComponent);
+    fixture = TestBed.createComponent(ConnectCardComponent);
     fixture.componentRef.setInput('item', {
       id: 'email',
       channel: 'Email',

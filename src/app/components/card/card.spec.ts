@@ -22,7 +22,6 @@ describe('CardComponent', () => {
 
     fixture = TestBed.createComponent(CardComponent);
     fixture.componentRef.setInput('project', mockProject);
-    fixture.componentRef.setInput('badgePrefix', 'Project');
     fixture.componentRef.setInput('actionLabel', 'View project');
     component = fixture.componentInstance;
     fixture.detectChanges();
