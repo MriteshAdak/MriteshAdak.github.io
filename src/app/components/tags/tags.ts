@@ -6,7 +6,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
   template: `
     <div class="flex flex-wrap gap-2">
       @for (tag of tags(); track tag) {
-        <span class="inline-flex items-center rounded-full border border-amber-300/20 bg-amber-300/10 px-3 py-1 text-xs font-medium text-amber-100">
+        <span class="inline-flex items-center rounded-full border border-[var(--accent-gold-border)] bg-[var(--accent-gold-subtle)] px-3 py-1 text-xs font-medium text-[var(--accent-gold-text)] transition-colors duration-300">
           {{ tag }}
         </span>
       }

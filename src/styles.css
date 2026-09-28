@@ -2,13 +2,55 @@
 
 @import 'tailwindcss';
 
-:root {
+:root,
+html[data-theme='dark'],
+html.dark {
 	color-scheme: dark;
-	--surface: rgba(0, 0, 0, 0.82);
-	--surface-strong: rgba(10, 10, 10, 0.92);
-	--text-strong: #fbbf24;
-	--text-muted: #a8b8cf;
-	--accent: #fbbf24;
+	--bg-base: #000000;
+	--bg-nav: rgba(0, 0, 0, 0.85);
+	--bg-surface: rgba(255, 255, 255, 0.05);
+	--bg-surface-hover: rgba(255, 255, 255, 0.1);
+	--border-surface: rgba(255, 255, 255, 0.1);
+	--border-surface-subtle: rgba(255, 255, 255, 0.05);
+	--shadow-surface: rgba(0, 0, 0, 0.5);
+	--text-heading: #ffffff;
+	--text-body: #cbd5e1;
+	--text-muted: #94a3b8;
+	--accent-gold: #fbbf24;
+	--accent-gold-hover: #f59e0b;
+	--accent-gold-subtle: rgba(251, 191, 36, 0.12);
+	--accent-gold-border: rgba(251, 191, 36, 0.25);
+	--accent-gold-text: #fde68a;
+	--nav-link: #cbd5e1;
+	--nav-link-hover: #fbbf24;
+	--nav-active-bg: rgba(255, 255, 255, 0.1);
+	--pill-bg: rgba(0, 0, 0, 0.7);
+	--pill-btn-bg: rgba(0, 0, 0, 0.8);
+}
+
+html[data-theme='light'],
+html.light {
+	color-scheme: light;
+	--bg-base: #f8fafc;
+	--bg-nav: rgba(248, 250, 252, 0.88);
+	--bg-surface: rgba(255, 255, 255, 0.85);
+	--bg-surface-hover: #ffffff;
+	--border-surface: rgba(0, 0, 0, 0.09);
+	--border-surface-subtle: rgba(0, 0, 0, 0.05);
+	--shadow-surface: rgba(15, 23, 42, 0.08);
+	--text-heading: #0f172a;
+	--text-body: #334155;
+	--text-muted: #64748b;
+	--accent-gold: #d97706;
+	--accent-gold-hover: #b45309;
+	--accent-gold-subtle: rgba(217, 119, 6, 0.1);
+	--accent-gold-border: rgba(217, 119, 6, 0.25);
+	--accent-gold-text: #92400e;
+	--nav-link: #475569;
+	--nav-link-hover: #d97706;
+	--nav-active-bg: rgba(0, 0, 0, 0.06);
+	--pill-bg: rgba(255, 255, 255, 0.9);
+	--pill-btn-bg: rgba(255, 255, 255, 0.95);
 }
 
 html {
@@ -26,8 +68,9 @@ textarea {
 
 body {
 	min-height: 100vh;
-	background: #000000;
-	color: var(--text-strong);
+	background: var(--bg-base);
+	color: var(--text-body);
+	transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {
@@ -41,35 +84,82 @@ a {
 
 @layer components {
 	.glass-surface-light {
-		@apply rounded-[1.75rem] border border-white/10 bg-white/5 shadow-xl shadow-black/50 backdrop-blur;
+		border: 1px solid var(--border-surface);
+		background-color: var(--bg-surface);
+		box-shadow: 0 10px 25px -5px var(--shadow-surface);
+		backdrop-filter: blur(12px);
+		border-radius: 1.75rem;
+		transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 	}
 
 	.glass-surface-interactive {
-		@apply transition-all duration-300 hover:-translate-y-1 hover:border-amber-400/40 hover:bg-white/10 hover:shadow-amber-950/20;
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	}
+	.glass-surface-interactive:hover {
+		transform: translateY(-0.25rem);
+		border-color: var(--accent-gold-border);
+		background-color: var(--bg-surface-hover);
+		box-shadow: 0 20px 25px -5px var(--shadow-surface);
 	}
 
 	.btn-primary {
-		@apply inline-flex items-center justify-center rounded-full border border-amber-300/20 bg-amber-300/10 px-4 py-2 text-sm font-medium text-amber-100 transition hover:bg-amber-300/20;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 9999px;
+		border: 1px solid var(--accent-gold-border);
+		background-color: var(--accent-gold-subtle);
+		padding: 0.5rem 1rem;
+		font-size: 0.875rem;
+		line-height: 1.25rem;
+		font-weight: 500;
+		color: var(--accent-gold-text);
+		transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+	}
+	.btn-primary:hover {
+		background-color: var(--accent-gold-border);
+		color: var(--text-heading);
 	}
 
 	.eyebrow {
 		font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-		@apply text-xs font-semibold uppercase tracking-[0.35em] text-amber-300;
+		font-size: 0.75rem;
+		line-height: 1rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.35em;
+		color: var(--accent-gold);
+		transition: color 0.3s ease;
 	}
 
 	.body-text {
-		@apply text-sm leading-relaxed text-slate-300 sm:text-base;
+		font-size: 0.875rem;
+		line-height: 1.625;
+		color: var(--text-body);
+		transition: color 0.3s ease;
+	}
+	@media (min-width: 640px) {
+		.body-text {
+			font-size: 1rem;
+			line-height: 1.75;
+		}
 	}
 
 	.hero-image-mask {
-		-webkit-mask-image:
-			linear-gradient(to right, transparent 0%, black 28%),
-			linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
-		-webkit-mask-composite: source-in;
-		mask-image:
-			linear-gradient(to right, transparent 0%, black 28%),
-			linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
-		mask-composite: intersect;
+		-webkit-mask-image: radial-gradient(
+			ellipse 50% 60% at 55% 50%,
+			black 65%,
+			rgba(0, 0, 0, 0.8) 74%,
+			rgba(0, 0, 0, 0.25) 82%,
+			transparent 88%
+		);
+		mask-image: radial-gradient(
+			ellipse 50% 60% at 55% 50%,
+			black 65%,
+			rgba(0, 0, 0, 0.8) 74%,
+			rgba(0, 0, 0, 0.25) 82%,
+			transparent 88%
+		);
 	}
 
 	.navbar-mask-fade {

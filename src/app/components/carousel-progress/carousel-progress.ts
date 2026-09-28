@@ -24,7 +24,7 @@ export interface CarouselSectionMeta {
         type="button"
         (click)="prev.emit()"
         [disabled]="isFirst()"
-        class="flex h-7 w-7 items-center justify-center rounded-full border border-white/10 bg-black/80 text-slate-300 shadow-lg backdrop-blur transition hover:border-amber-400/50 hover:bg-white/15 hover:text-white disabled:opacity-20 disabled:pointer-events-none focus:outline-none focus:ring-2 focus:ring-amber-400/50"
+        class="flex h-7 w-7 items-center justify-center rounded-full border border-[var(--border-surface)] bg-[var(--pill-btn-bg)] text-[var(--text-muted)] shadow-lg backdrop-blur transition hover:border-[var(--accent-gold)] hover:bg-[var(--nav-active-bg)] hover:text-[var(--text-heading)] disabled:opacity-20 disabled:pointer-events-none focus:outline-none focus:ring-2 focus:ring-[var(--accent-gold)]"
         aria-label="Previous section"
         title="Previous section"
       >
@@ -46,16 +46,16 @@ export interface CarouselSectionMeta {
 
       <!-- Vertical progress track and step markers -->
       <div
-        class="relative flex flex-col items-center py-2 px-1.5 rounded-full border border-white/10 bg-black/70 shadow-2xl backdrop-blur-md"
+        class="relative flex flex-col items-center py-2 px-1.5 rounded-full border border-[var(--border-surface)] bg-[var(--pill-bg)] shadow-2xl backdrop-blur-md"
       >
         <!-- Background track line -->
         <div
-          class="absolute top-4 bottom-4 w-0.5 bg-white/10 rounded-full"
+          class="absolute top-4 bottom-4 w-0.5 bg-[var(--border-surface)] rounded-full"
         ></div>
 
         <!-- Active filled progress line -->
         <div
-          class="absolute top-4 w-0.5 bg-amber-400 rounded-full transition-all duration-300"
+          class="absolute top-4 w-0.5 bg-[var(--accent-gold)] rounded-full transition-all duration-300"
           [style.height]="progressHeightStyle()"
         ></div>
 
@@ -72,18 +72,18 @@ export interface CarouselSectionMeta {
               <!-- Indicator Dot -->
               <span
                 class="h-3 w-3 rounded-full transition-all duration-300"
-                [class.bg-amber-400]="isActive(sec.id)"
+                [class.bg-[var(--accent-gold)]]="isActive(sec.id)"
                 [class.scale-125]="isActive(sec.id)"
                 [class.ring-4]="isActive(sec.id)"
-                [class.ring-amber-400/35]="isActive(sec.id)"
-                [class.bg-white/40]="!isActive(sec.id) && idx <= activeIndex()"
-                [class.bg-white/20]="idx > activeIndex()"
-                [class.group-hover:bg-amber-300]="!isActive(sec.id)"
+                [class.ring-[var(--accent-gold-border)]]="isActive(sec.id)"
+                [class.bg-[var(--text-muted)]/50]="!isActive(sec.id) && idx <= activeIndex()"
+                [class.bg-[var(--text-muted)]/20]="idx > activeIndex()"
+                [class.group-hover:bg-[var(--accent-gold)]]="!isActive(sec.id)"
               ></span>
 
               <!-- Hover Tooltip Label -->
               <span
-                class="pointer-events-none absolute left-7 whitespace-nowrap rounded-md border border-white/10 bg-black/90 px-2.5 py-1 text-xs font-medium text-slate-200 shadow-xl backdrop-blur-md opacity-0 transition-opacity duration-200 group-hover:opacity-100 hidden sm:block"
+                class="pointer-events-none absolute left-7 whitespace-nowrap rounded-md border border-[var(--border-surface)] bg-[var(--pill-btn-bg)] px-2.5 py-1 text-xs font-medium text-[var(--text-heading)] shadow-xl backdrop-blur-md opacity-0 transition-opacity duration-200 group-hover:opacity-100 hidden sm:block"
               >
                 {{ sec.label }}
               </span>
@@ -97,7 +97,7 @@ export interface CarouselSectionMeta {
         type="button"
         (click)="next.emit()"
         [disabled]="isLast()"
-        class="flex h-7 w-7 items-center justify-center rounded-full border border-white/10 bg-black/80 text-slate-300 shadow-lg backdrop-blur transition hover:border-amber-400/50 hover:bg-white/15 hover:text-white disabled:opacity-20 disabled:pointer-events-none focus:outline-none focus:ring-2 focus:ring-amber-400/50"
+        class="flex h-7 w-7 items-center justify-center rounded-full border border-[var(--border-surface)] bg-[var(--pill-btn-bg)] text-[var(--text-muted)] shadow-lg backdrop-blur transition hover:border-[var(--accent-gold)] hover:bg-[var(--nav-active-bg)] hover:text-[var(--text-heading)] disabled:opacity-20 disabled:pointer-events-none focus:outline-none focus:ring-2 focus:ring-[var(--accent-gold)]"
         aria-label="Next section"
         title="Next section"
       >

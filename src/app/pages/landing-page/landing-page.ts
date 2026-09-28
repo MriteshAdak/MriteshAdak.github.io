@@ -127,8 +127,8 @@ import { PortfolioDataService } from '../../services/portfolio-data.service';
           </div>
         } @else if (errorMessage()) {
           <div class="min-h-screen w-full flex items-center justify-center">
-            <section class="border-rose-400/30 bg-rose-400/10 p-6 sm:p-8 rounded-2xl" role="alert">
-              <p class="body-text text-rose-100">{{ errorMessage() }}</p>
+            <section class="border border-rose-500/30 bg-rose-500/10 p-6 sm:p-8 rounded-2xl" role="alert">
+              <p class="body-text text-rose-700 dark:text-rose-200 font-medium">{{ errorMessage() }}</p>
             </section>
           </div>
         }

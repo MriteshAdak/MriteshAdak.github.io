@@ -17,7 +17,7 @@ import { ConnectItem } from '../../interfaces/connect-item';
       <div class="flex flex-col flex-1 min-h-0 overflow-hidden">
         <div class="flex items-center justify-between gap-3 shrink-0">
           <p class="eyebrow">{{ item().channel }}</p>
-          <span class="inline-flex shrink-0 items-center justify-center rounded-full bg-white/5 p-2 sm:p-2.5 text-slate-300 transition group-hover:bg-amber-300/10 group-hover:text-amber-200">
+          <span class="inline-flex shrink-0 items-center justify-center rounded-full bg-[var(--nav-active-bg)] p-2 sm:p-2.5 text-[var(--text-muted)] transition group-hover:bg-[var(--accent-gold-subtle)] group-hover:text-[var(--accent-gold)]">
             @if (item().id === 'email') {
               <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
@@ -38,12 +38,12 @@ import { ConnectItem } from '../../interfaces/connect-item';
           </span>
         </div>
         <div class="mt-3 sm:mt-4 flex-1 min-h-0 overflow-y-auto pr-1 [scrollbar-width:thin]">
-          <h3 class="text-lg sm:text-xl lg:text-2xl font-semibold text-white break-words">{{ item().value }}</h3>
+          <h3 class="text-lg sm:text-xl lg:text-2xl font-semibold text-[var(--text-heading)] break-words transition-colors duration-300">{{ item().value }}</h3>
         </div>
       </div>
 
       @if (item().actionLabel) {
-        <div class="mt-4 sm:mt-6 flex items-center justify-between pt-3 sm:pt-4 border-t border-white/5 shrink-0">
+        <div class="mt-4 sm:mt-6 flex items-center justify-between pt-3 sm:pt-4 border-t border-[var(--border-surface-subtle)] shrink-0">
           <span class="btn-primary text-xs sm:text-sm">
             {{ item().actionLabel }} &rarr;
           </span>

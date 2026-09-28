@@ -18,7 +18,7 @@ import { ChangeDetectionStrategy, Component, ElementRef, computed, input, viewCh
           <button
             type="button"
             (click)="scroll('left')"
-            class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-300 transition hover:bg-white/15 hover:text-white focus:outline-none focus:ring-2 focus:ring-amber-400/50"
+            class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border-surface)] bg-[var(--bg-surface)] text-[var(--text-muted)] transition hover:bg-[var(--bg-surface-hover)] hover:text-[var(--text-heading)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-gold)]"
             aria-label="Scroll left"
           >
             <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
@@ -28,7 +28,7 @@ import { ChangeDetectionStrategy, Component, ElementRef, computed, input, viewCh
           <button
             type="button"
             (click)="scroll('right')"
-            class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-300 transition hover:bg-white/15 hover:text-white focus:outline-none focus:ring-2 focus:ring-amber-400/50"
+            class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border-surface)] bg-[var(--bg-surface)] text-[var(--text-muted)] transition hover:bg-[var(--bg-surface-hover)] hover:text-[var(--text-heading)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-gold)]"
             aria-label="Scroll right"
           >
             <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">

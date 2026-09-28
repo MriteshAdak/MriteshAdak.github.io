@@ -18,13 +18,13 @@ import { TagsComponent } from '../tags/tags';
       }
       <div class="flex flex-1 flex-col justify-between overflow-hidden p-6 sm:p-8 min-h-0">
         <div class="flex flex-1 flex-col min-h-0 overflow-hidden space-y-3">
-          <h3 class="text-xl sm:text-2xl font-semibold text-white shrink-0 line-clamp-2">{{ project().name }}</h3>
+          <h3 class="text-xl sm:text-2xl font-semibold text-[var(--text-heading)] shrink-0 line-clamp-2 transition-colors duration-300">{{ project().name }}</h3>
           <div class="overflow-y-auto flex-1 pr-1 [scrollbar-width:thin]">
             <p class="body-text text-sm sm:text-base leading-relaxed">{{ project().description }}</p>
           </div>
         </div>
 
-        <div class="mt-6 flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-white/5 shrink-0">
+        <div class="mt-6 flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-[var(--border-surface-subtle)] shrink-0">
           <app-tags [tags]="project().tags" class="flex-1 min-w-0" />
           @if (actionLabel() && project().projectUrl) {
             <a

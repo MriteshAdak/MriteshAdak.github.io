@@ -15,7 +15,7 @@ interface NavItem {
     >
       <!-- Gradient background and backdrop blur fading smoothly out at the bottom -->
       <div
-        class="navbar-mask-fade absolute inset-0 h-full w-full bg-gradient-to-b from-black via-black/80 to-transparent backdrop-blur-md"
+        class="navbar-mask-fade absolute inset-0 h-full w-full bg-gradient-to-b from-[var(--bg-base)] via-[var(--bg-nav)] to-transparent backdrop-blur-md transition-colors duration-300"
         aria-hidden="true"
       ></div>
 
@@ -31,12 +31,12 @@ interface NavItem {
             <a
               [href]="item.href"
               (click)="onLinkClick($event, item.href)"
-              class="rounded-lg px-2.5 py-1.5 transition-colors focus:outline-none focus:ring-2 focus:ring-amber-400/50"
-              [class.text-amber-300]="isActive(item.href)"
-              [class.bg-white/10]="isActive(item.href)"
-              [class.text-slate-300]="!isActive(item.href)"
-              [class.hover:bg-white/10]="!isActive(item.href)"
-              [class.hover:text-amber-300]="!isActive(item.href)"
+              class="rounded-lg px-2.5 py-1.5 transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--accent-gold)]"
+              [class.text-[var(--accent-gold)]]="isActive(item.href)"
+              [class.bg-[var(--nav-active-bg)]]="isActive(item.href)"
+              [class.text-[var(--nav-link)]]="!isActive(item.href)"
+              [class.hover:bg-[var(--nav-active-bg)]]="!isActive(item.href)"
+              [class.hover:text-[var(--nav-link-hover)]]="!isActive(item.href)"
             >
               {{ item.label }}
             </a>

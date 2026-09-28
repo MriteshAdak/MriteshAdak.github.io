@@ -18,14 +18,14 @@ import { TagsComponent } from '../tags/tags';
           class="relative z-10 flex flex-col justify-center max-w-xl sm:max-w-2xl lg:max-w-[50%] xl:max-w-[52%] py-6 lg:py-12"
         >
           <h1
-            class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white"
+            class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[var(--text-heading)] transition-colors duration-300"
           >
             {{ name() }}
           </h1>
 
           @if (title()) {
             <p
-              class="mt-3 text-lg sm:text-xl lg:text-2xl font-medium text-amber-300"
+              class="mt-3 text-lg sm:text-xl lg:text-2xl font-medium text-[var(--accent-gold)] transition-colors duration-300"
             >
               {{ title() }}
             </p>
@@ -33,7 +33,7 @@ import { TagsComponent } from '../tags/tags';
 
           @if (summary()) {
             <p
-              class="body-text mt-6 text-base sm:text-lg leading-relaxed text-slate-300"
+              class="body-text mt-6 text-base sm:text-lg leading-relaxed"
             >
               {{ summary() }}
             </p>
@@ -57,14 +57,6 @@ import { TagsComponent } from '../tags/tags';
               class="h-full w-full object-cover object-top lg:object-center hero-image-mask"
             />
           }
-
-          <!-- Gradient overlays to ensure smooth fade into background -->
-          <div
-            class="absolute inset-0 bg-gradient-to-r from-black via-transparent to-transparent"
-          ></div>
-          <div
-            class="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/90"
-          ></div>
         </div>
       </div>
     </section>

@@ -13,8 +13,8 @@ import { TimelineItem } from '../../interfaces/timeline-item';
         <div class="flex items-center justify-between gap-3 shrink-0">
           <p class="eyebrow">{{ displayPeriod() }}</p>
           @if (item().location) {
-            <span class="inline-flex shrink-0 items-center gap-1 rounded-full border border-amber-300/20 bg-amber-300/10 px-2.5 py-0.5 text-xs font-medium text-amber-200">
-              <svg class="h-3 w-3 text-amber-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <span class="inline-flex shrink-0 items-center gap-1 rounded-full border border-[var(--accent-gold-border)] bg-[var(--accent-gold-subtle)] px-2.5 py-0.5 text-xs font-medium text-[var(--accent-gold-text)]">
+              <svg class="h-3 w-3 text-[var(--accent-gold)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
@@ -24,8 +24,8 @@ import { TimelineItem } from '../../interfaces/timeline-item';
         </div>
 
         <div class="mt-4 shrink-0">
-          <h3 class="text-xl sm:text-2xl font-semibold text-white">{{ item().title }}</h3>
-          <p class="mt-1 text-sm sm:text-base font-medium text-amber-200/80">{{ item().subtitle }}</p>
+          <h3 class="text-xl sm:text-2xl font-semibold text-[var(--text-heading)] transition-colors duration-300">{{ item().title }}</h3>
+          <p class="mt-1 text-sm sm:text-base font-medium text-[var(--accent-gold)]">{{ item().subtitle }}</p>
         </div>
 
         @if (item().description) {
