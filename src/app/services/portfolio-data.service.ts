@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { ConnectItem } from '../interfaces/connect-item';
 import { PortfolioData } from '../interfaces/portfolio-data';
 
 @Injectable({
@@ -24,7 +23,6 @@ export class PortfolioDataService {
     return {
       ...payload,
       meta: payload.meta,
-      header: payload.header,
       sections: payload.sections,
       profile: payload.profile ?? null,
       highlights: payload.highlights ?? [],

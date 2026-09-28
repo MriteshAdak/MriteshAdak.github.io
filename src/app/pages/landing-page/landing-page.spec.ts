@@ -13,52 +13,36 @@ describe('LandingPageComponent', () => {
     meta: {
       pageTitle: 'Test Title',
       description: 'Test Description',
-      loadingText: 'Loading...',
-      errorText: 'Error loading data',
-    },
-    header: {
-      badge: 'Portfolio',
-      ctaLabel: 'Connect',
-      ctaHref: '#connect',
     },
     sections: {
       about: {
         id: 'about',
-        eyebrow: 'About',
         title: 'About Me',
-        cardEyebrow: 'Summary',
       },
       education: {
         id: 'education',
-        eyebrow: 'Education',
         title: 'Academic Background',
         description: 'Institutions attended.',
       },
       experiences: {
         id: 'experiences',
-        eyebrow: 'Experiences',
         title: 'Work History',
         presentLabel: 'Present',
       },
       projects: {
         id: 'projects',
-        eyebrow: 'Projects',
         title: 'My Projects',
-        cardBadgePrefix: 'Project',
         cardActionLabel: 'View',
       },
       connect: {
         id: 'connect',
-        eyebrow: 'Connect',
         title: 'Connect',
       },
     },
     profile: {
-      id: 1,
       fullName: 'Test User',
       title: 'Engineer',
       headline: 'Building things',
-      summary: 'Summary text',
       pictureUrl: '/test.jpg',
       pictureAlt: 'Test portrait',
     },
@@ -112,10 +96,7 @@ describe('LandingPageComponent', () => {
 
     await TestBed.configureTestingModule({
       imports: [LandingPageComponent],
-      providers: [
-        { provide: PortfolioDataService, useValue: mockPortfolioDataService },
-        Title,
-      ],
+      providers: [{ provide: PortfolioDataService, useValue: mockPortfolioDataService }, Title],
     }).compileComponents();
 
     fixture = TestBed.createComponent(LandingPageComponent);

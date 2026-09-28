@@ -13,10 +13,8 @@ describe('ProjectsSectionComponent', () => {
     fixture = TestBed.createComponent(ProjectsSectionComponent);
     fixture.componentRef.setInput('meta', {
       id: 'projects',
-      eyebrow: 'Projects',
       title: 'Personal Projects',
       description: 'Projects built so far.',
-      cardBadgePrefix: 'Project',
       cardActionLabel: 'View project',
     });
     fixture.componentRef.setInput('projects', [

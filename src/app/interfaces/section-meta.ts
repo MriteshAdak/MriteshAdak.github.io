@@ -1,19 +1,12 @@
 export interface SectionMeta {
   id: string;
-  eyebrow: string;
   title: string;
+  eyebrow?: string;
   description?: string;
-  actionLabel?: string;
-  actionHref?: string;
   [key: string]: unknown;
 }
 
-export interface AboutSectionMeta extends SectionMeta {
-  cardEyebrow: string;
-}
-
 export interface ProjectsSectionMeta extends SectionMeta {
-  cardBadgePrefix: string;
   cardActionLabel: string;
 }
 
@@ -26,7 +19,7 @@ export interface ExperiencesSectionMeta extends TimelineSectionMeta {
 }
 
 export interface SectionsConfig {
-  about: AboutSectionMeta;
+  about?: SectionMeta;
   projects: ProjectsSectionMeta;
   experiences: ExperiencesSectionMeta;
   education?: TimelineSectionMeta;
