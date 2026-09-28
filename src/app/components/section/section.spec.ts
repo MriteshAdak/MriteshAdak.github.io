@@ -12,8 +12,6 @@ describe('SectionComponent', () => {
 
     fixture = TestBed.createComponent(SectionComponent);
     fixture.componentRef.setInput('id', 'test-section');
-    fixture.componentRef.setInput('title', 'Test Section Title');
-    fixture.componentRef.setInput('eyebrow', 'Test Eyebrow');
     component = fixture.componentInstance;
     fixture.detectChanges();
     await fixture.whenStable();
@@ -23,9 +21,9 @@ describe('SectionComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render title and eyebrow', () => {
+  it('should set section id attribute', () => {
     const el = fixture.nativeElement as HTMLElement;
-    expect(el.querySelector('h2')?.textContent).toContain('Test Section Title');
-    expect(el.querySelector('.eyebrow')?.textContent).toContain('Test Eyebrow');
+    const section = el.querySelector('section');
+    expect(section?.getAttribute('id')).toBe('test-section');
   });
 });
