@@ -1,52 +1,32 @@
 {
   "meta": {
     "pageTitle": "Mritesh Adak | Portfolio",
-    "description": "Portfolio of Mritesh Adak — Computer Science Student & Software Developer",
-    "loadingText": "Loading portfolio data...",
-    "errorText": "Unable to load portfolio data. Please try again later."
-  },
-  "header": {
-    "badge": "Personal Portfolio",
-    "ctaLabel": "Connect",
-    "ctaHref": "#connect"
+    "description": "Portfolio of Mritesh Adak — Computer Science Student & Software Developer"
   },
   "sections": {
-    "about": {
-      "id": "about",
-      "eyebrow": "About",
-      "title": "About",
-      "cardEyebrow": "Summary"
-    },
     "projects": {
       "id": "projects",
-      "eyebrow": "",
       "title": "Projects",
       "description": "The projects built so far as a student, with more to come as I continue to expand my skill set.",
-      "cardBadgePrefix": "Project",
       "cardActionLabel": "View project"
     },
     "experiences": {
       "id": "experiences",
-      "eyebrow": "",
       "title": "Work Experience",
       "description": "A concise timeline of the roles and responsibilities that shape the skills you see above.",
       "presentLabel": "Present"
     },
     "education": {
       "id": "education",
-      "eyebrow": "",
       "title": "Academics",
       "description": "A brief overview of my academic journey and the institutions that have contributed to my growth."
     },
     "connect": {
       "id": "connect",
-      "eyebrow": "",
-      "title": "Connect",
-      "description": "Email, LinkedIn, and GitHub"
+      "title": "Connect"
     }
   },
   "profile": {
-    "id": 1,
     "fullName": "Mritesh Adak",
     "title": "M.Sc. Computer Science Student",
     "headline": "I come with a background in Conga & Salesforce Consulting (and Development) along with operational experience in the sales lifecycle. Naturally, I am well-versed in the Quote-to-Cash lifecycle using the Conga Product Suite (CPQ, CLM) and am learning modern Revenue Management and Operations tooling in the AI era. I am also learning platform-agnostic development with security in mind.",
