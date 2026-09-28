@@ -7,43 +7,41 @@
   },
   "header": {
     "badge": "Personal Portfolio",
-    "ctaLabel": "Contact",
-    "ctaHref": "#contact"
+    "ctaLabel": "Connect",
+    "ctaHref": "#connect"
   },
   "sections": {
     "about": {
       "id": "about",
-      "eyebrow": "About Me",
-      "title": "M.Sc. Computer Science Student",
-      "cardEyebrow": "Summary",
-      "actionLabel": "Jump to projects",
-      "actionHref": "#projects"
+      "eyebrow": "About",
+      "title": "About",
+      "cardEyebrow": "Summary"
     },
     "projects": {
       "id": "projects",
-      "eyebrow": "Projects",
-      "title": "Personal Projects",
+      "eyebrow": "",
+      "title": "Projects",
       "description": "The projects built so far as a student, with more to come as I continue to expand my skill set.",
       "cardBadgePrefix": "Project",
       "cardActionLabel": "View project"
     },
     "experiences": {
       "id": "experiences",
-      "eyebrow": "Experiences",
-      "title": "Employment Timeline",
+      "eyebrow": "",
+      "title": "Work Experience",
       "description": "A concise timeline of the roles and responsibilities that shape the skills you see above.",
       "presentLabel": "Present"
     },
     "education": {
       "id": "education",
-      "eyebrow": "Education",
-      "title": "Academic Background",
+      "eyebrow": "",
+      "title": "Academics",
       "description": "A brief overview of my academic journey and the institutions that have contributed to my growth."
     },
-    "contact": {
-      "id": "contact",
-      "eyebrow": "Contact details and important links",
-      "title": "Reach out to me directly",
+    "connect": {
+      "id": "connect",
+      "eyebrow": "",
+      "title": "Connect",
       "description": "Email, LinkedIn, and GitHub"
     }
   },
@@ -170,7 +168,7 @@
       "displayOrder": 2
     }
   ],
-  "contactItems": [
+  "connectItems": [
     {
       "id": "email",
       "channel": "Email",
