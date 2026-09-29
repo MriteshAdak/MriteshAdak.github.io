@@ -30,7 +30,7 @@ import { TimelineItem } from '../../interfaces/timeline-item';
 
         @if (item().description) {
           <div class="mt-4 flex-1 min-h-0 overflow-y-auto pr-1 [scrollbar-width:thin]">
-            <p class="body-text text-sm sm:text-base leading-relaxed">{{ item().description }}</p>
+            <p class="body-text whitespace-pre-line text-sm sm:text-base leading-relaxed">{{ item().description }}</p>
           </div>
         }
       </div>

@@ -20,7 +20,7 @@ import { TagsComponent } from '../tags/tags';
         <div class="flex flex-1 flex-col min-h-0 overflow-hidden space-y-3">
           <h3 class="text-xl sm:text-2xl font-semibold text-[var(--text-heading)] shrink-0 line-clamp-2 transition-colors duration-300">{{ project().name }}</h3>
           <div class="overflow-y-auto flex-1 pr-1 [scrollbar-width:thin]">
-            <p class="body-text text-sm sm:text-base leading-relaxed">{{ project().description }}</p>
+            <p class="body-text whitespace-pre-line text-sm sm:text-base leading-relaxed">{{ project().description }}</p>
           </div>
         </div>
 
