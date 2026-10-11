@@ -39,7 +39,8 @@
     "Python",
     "Java",
     "TypeScript",
-    "PostgreSQL",
+    "NewSQL",
+    "NoSQL",
     "Azure",
     "AWS",
 	"Docker",
@@ -47,8 +48,8 @@
     "Zapier",
     "Analytics",
     "LLMs",
-    "GPTs",
-    "Ollama"
+    "Ollama",
+    "ADK"
   ],
   "projects": [
     {
